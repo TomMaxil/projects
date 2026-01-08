@@ -1,0 +1,629 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\controllers\\api\\productsapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:controllers\\api\\productsapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\projinventroy.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:projinventroy.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\dtos\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:dtos\\createproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:dtos\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C690CA2-C9D1-43D8-94BF-EAD08A61BC6F}|..\\ProjInventory.Tests\\ProjInventory.Tests.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventory.tests\\service\\inventoryservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C690CA2-C9D1-43D8-94BF-EAD08A61BC6F}|..\\ProjInventory.Tests\\ProjInventory.Tests.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventory.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:controllers\\salecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\services\\inventroy\\inventroyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:services\\inventroy\\inventroyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\services\\inventroy\\iinventroyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:services\\inventroy\\iinventroyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\services\\inventroy\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:services\\inventroy\\inventoryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9C690CA2-C9D1-43D8-94BF-EAD08A61BC6F}|..\\ProjInventory.Tests\\ProjInventory.Tests.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventory.tests\\projinventory.tests.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\hubs\\inventoryhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:hubs\\inventoryhub.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\services\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:services\\email\\emailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\sale\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\sale\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\purchase\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\purchase\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\supplier\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\supplier\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\services\\email\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:services\\email\\iemailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\purchase\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\purchase\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\purchase\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\purchase\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\admin\\lowstock.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\admin\\lowstock.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\controllers\\purchasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:controllers\\purchasecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\viewmodels\\salecreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:viewmodels\\salecreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\supplier\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\supplier\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\supplier\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\supplier\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\models\\supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:models\\supplier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\viewmodels\\purchasecreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:viewmodels\\purchasecreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\sale\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\sale\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\views\\sale\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:views\\sale\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|c:\\users\\pc\\documents\\asp.netcore\\projinventroy\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DB4D7F93-7A33-4CBE-BA7B-141BA6179C82}|ProjInventroy.csproj|solutionrelative:controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 11,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-05T18:36:24.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreateProductDto.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\DTOs\\CreateProductDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateProductDto.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\DTOs\\CreateProductDto.cs",
+              "RelativeToolTip": "DTOs\\CreateProductDto.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBMAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T18:53:38.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProductDto.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\DTOs\\ProductDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\ProductDto.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\DTOs\\ProductDto.cs",
+              "RelativeToolTip": "DTOs\\ProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T18:20:45.421Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductsApiController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\Api\\ProductsApiController.cs",
+              "RelativeDocumentMoniker": "Controllers\\Api\\ProductsApiController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\Api\\ProductsApiController.cs",
+              "RelativeToolTip": "Controllers\\Api\\ProductsApiController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T18:19:38.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "InventoryServiceTests.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventory.Tests\\Service\\InventoryServiceTests.cs",
+              "RelativeDocumentMoniker": "..\\ProjInventory.Tests\\Service\\InventoryServiceTests.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventory.Tests\\Service\\InventoryServiceTests.cs",
+              "RelativeToolTip": "..\\ProjInventory.Tests\\Service\\InventoryServiceTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T19:22:43.187Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ProjInventory.Tests.csproj",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventory.Tests\\ProjInventory.Tests.csproj",
+              "RelativeDocumentMoniker": "..\\ProjInventory.Tests\\ProjInventory.Tests.csproj",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventory.Tests\\ProjInventory.Tests.csproj",
+              "RelativeToolTip": "..\\ProjInventory.Tests\\ProjInventory.Tests.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-31T19:08:18.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventory.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "..\\ProjInventory.Tests\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventory.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "..\\ProjInventory.Tests\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T18:30:51.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "InventoryService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Services\\Inventroy\\InventoryService.cs",
+              "RelativeDocumentMoniker": "Services\\Inventroy\\InventoryService.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Services\\Inventroy\\InventoryService.cs",
+              "RelativeToolTip": "Services\\Inventroy\\InventoryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-30T18:20:21.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "InventoryHub.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Hubs\\InventoryHub.cs",
+              "RelativeDocumentMoniker": "Hubs\\InventoryHub.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Hubs\\InventoryHub.cs",
+              "RelativeToolTip": "Hubs\\InventoryHub.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-30T18:17:16.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProjInventroy.csproj",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\ProjInventroy.csproj",
+              "RelativeDocumentMoniker": "ProjInventroy.csproj",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\ProjInventroy.csproj",
+              "RelativeToolTip": "ProjInventroy.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-12-30T18:15:01.429Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-29T18:25:57.032Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAgwEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T19:57:07.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IInventroyService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Services\\Inventroy\\IInventroyService.cs",
+              "RelativeDocumentMoniker": "Services\\Inventroy\\IInventroyService.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Services\\Inventroy\\IInventroyService.cs",
+              "RelativeToolTip": "Services\\Inventroy\\IInventroyService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T19:35:15.391Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "InventroyService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Services\\Inventroy\\InventroyService.cs",
+              "RelativeDocumentMoniker": "Services\\Inventroy\\InventroyService.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Services\\Inventroy\\InventroyService.cs",
+              "RelativeToolTip": "Services\\Inventroy\\InventroyService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T19:28:19.565Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-12-27T19:20:44.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "EmailService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Services\\Email\\EmailService.cs",
+              "RelativeDocumentMoniker": "Services\\Email\\EmailService.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Services\\Email\\EmailService.cs",
+              "RelativeToolTip": "Services\\Email\\EmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T19:08:33.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "IEmailService.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Services\\Email\\IEmailService.cs",
+              "RelativeDocumentMoniker": "Services\\Email\\IEmailService.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Services\\Email\\IEmailService.cs",
+              "RelativeToolTip": "Services\\Email\\IEmailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-27T19:04:52.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Purchase\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Purchase\\Details.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Purchase\\Details.cshtml",
+              "RelativeToolTip": "Views\\Purchase\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAByAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-26T18:01:12.758Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "LowStock.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Admin\\LowStock.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\LowStock.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Admin\\LowStock.cshtml",
+              "RelativeToolTip": "Views\\Admin\\LowStock.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-26T17:58:12.683Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Purchase\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Purchase\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Purchase\\Index.cshtml",
+              "RelativeToolTip": "Views\\Purchase\\Index.cshtml",
+              "ViewState": "AgIAAHsAAAAAAAAAAABhwA8AAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-26T17:44:26.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Supplier\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Supplier\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Supplier\\Index.cshtml",
+              "RelativeToolTip": "Views\\Supplier\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-25T18:31:13.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Supplier\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Supplier\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Supplier\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Supplier\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-25T18:22:45.333Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Supplier\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Supplier\\Create.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Supplier\\Create.cshtml",
+              "RelativeToolTip": "Views\\Supplier\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-25T18:16:22.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "SupplierController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\SupplierController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SupplierController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\SupplierController.cs",
+              "RelativeToolTip": "Controllers\\SupplierController.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwD8AAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-25T18:11:29.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Supplier.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Models\\Supplier.cs",
+              "RelativeDocumentMoniker": "Models\\Supplier.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Models\\Supplier.cs",
+              "RelativeToolTip": "Models\\Supplier.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-25T17:50:49.281Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "PurchaseCreateVM.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\ViewModels\\PurchaseCreateVM.cs",
+              "RelativeDocumentMoniker": "ViewModels\\PurchaseCreateVM.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\ViewModels\\PurchaseCreateVM.cs",
+              "RelativeToolTip": "ViewModels\\PurchaseCreateVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-24T19:36:29.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Purchase\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Purchase\\Create.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Purchase\\Create.cshtml",
+              "RelativeToolTip": "Views\\Purchase\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-24T19:16:52.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Sale\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Sale\\Create.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Sale\\Create.cshtml",
+              "RelativeToolTip": "Views\\Sale\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-24T17:36:41.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Sale\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Sale\\Details.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Sale\\Details.cshtml",
+              "RelativeToolTip": "Views\\Sale\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-23T19:35:31.883Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Sale\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Sale\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Sale\\Index.cshtml",
+              "RelativeToolTip": "Views\\Sale\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-23T19:30:49.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "SaleCreateVM.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\ViewModels\\SaleCreateVM.cs",
+              "RelativeDocumentMoniker": "ViewModels\\SaleCreateVM.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\ViewModels\\SaleCreateVM.cs",
+              "RelativeToolTip": "ViewModels\\SaleCreateVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T19:14:51.28Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SaleController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\SaleController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SaleController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\SaleController.cs",
+              "RelativeToolTip": "Controllers\\SaleController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T18:13:54.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "PurchaseController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\PurchaseController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PurchaseController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\PurchaseController.cs",
+              "RelativeToolTip": "Controllers\\PurchaseController.cs",
+              "ViewState": "AgIAAIYAAAAAAAAAAAAIwI8AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-22T18:07:52.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "Controllers\\CategoryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-21T18:38:52.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "Controllers\\ProductController.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAADwvyEAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-20T18:28:55.462Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-20T18:17:24.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-19T19:39:45.223Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\ProjInventroy\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-19T19:37:20.98Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<style>
+
+    .contact-hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('@Url.Content("~/images/banner-contact.jpg")') center/cover no-repeat;
+        padding: 140px 0 100px;
+        text-align: center;
+        color: white;
+        width: 100%;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .contact-hero h1 {
+        font-size: 48px;
+        font-weight: 800;
+        letter-spacing: 1.5px;
+        margin-bottom: 20px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .contact-hero p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        opacity: 0.95;
+        font-weight: 400;
+        line-height: 1.6;
+    }
+
+    .contact-stats {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        text-align: center;
+    }
+
+    .stat-icon {
+        font-size: 32px;
+        color: #ff3c2f;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .stat-label {
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.9;
+    }
+
+    
+    .contact-main {
+        padding: 80px 0;
+        position: relative;
+    }
+
+        .contact-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ff3c2f, transparent);
+        }
+
+   
+    .contact-box {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        height: 100%;
+        border: 2px solid transparent;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff3c2f, #ff6b6b);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #ff3c2f;
+        }
+
+            .contact-box:hover::before {
+                transform: scaleX(1);
+            }
+
+        .contact-box h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #222;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+            .contact-box h3::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 60px;
+                height: 4px;
+                background: linear-gradient(90deg, #ff3c2f, #ff6b6b);
+                border-radius: 2px;
+            }
+
+    
+    .info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 25px;
+        padding: 15px;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        background: #f9f9f9;
+        border: 1px solid transparent;
+    }
+
+        .info-item:hover {
+            background: #fff5f5;
+            border-color: #ff3c2f;
+            transform: translateX(5px);
+        }
+
+        .info-item i {
+            font-size: 22px;
+            margin-right: 15px;
+            color: #ff3c2f;
+            min-width: 24px;
+            text-align: center;
+            padding-top: 3px;
+        }
+
+    .info-content h5 {
+        font-weight: 700;
+        color: #222;
+        margin: 0 0 5px 0;
+        font-size: 16px;
+    }
+
+    .info-content p {
+        color: #666;
+        margin: 0;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+   
+    .working-hours {
+        background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+        padding: 20px;
+        border-radius: 12px;
+        margin-top: 25px;
+        border: 1px solid rgba(255, 60, 47, 0.1);
+    }
+
+    .hours-title {
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .hours-title i {
+            color: #ff3c2f;
+        }
+
+    .hours-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+            .hours-list li:last-child {
+                border-bottom: none;
+            }
+
+    .day {
+        color: #666;
+        font-weight: 600;
+    }
+
+    .time {
+        color: #222;
+        font-weight: 700;
+    }
+
+   
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        height: 50px;
+        border-radius: 12px;
+        border: 2px solid #f0f0f0;
+        padding: 12px 20px;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        background: #f9f9f9;
+    }
+
+        .form-control:focus {
+            border-color: #ff3c2f;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 60, 47, 0.1);
+        }
+
+    textarea.form-control {
+        height: 150px;
+        resize: vertical;
+        min-height: 150px;
+    }
+
+    .send-btn {
+        background: linear-gradient(90deg, #ff3c2f 0%, #ff6b6b 100%);
+        color: white;
+        border: none;
+        padding: 16px 30px;
+        border-radius: 12px;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        cursor: pointer;
+    }
+
+        .send-btn:hover {
+            background: linear-gradient(90deg, #222 0%, #444 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .send-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .send-btn:hover i {
+            transform: translateX(5px);
+        }
+
+    
+    .map-section {
+        margin: 80px 0;
+    }
+
+    .map-container {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        border: 2px solid #f0f0f0;
+        position: relative;
+    }
+
+    .map-overlay {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        max-width: 300px;
+        z-index: 10;
+    }
+
+        .map-overlay h4 {
+            font-weight: 800;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .map-overlay p {
+            color: #666;
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .map-overlay i {
+            color: #ff3c2f;
+            margin-right: 8px;
+        }
+
+
+    @@media (max-width: 768px) {
+        .contact-hero {
+            padding: 100px 0 60px;
+            min-height: 400px;
+        }
+
+            .contact-hero h1 {
+                font-size: 36px;
+            }
+
+        .contact-main {
+            padding: 60px 0;
+        }
+
+        .contact-box {
+            padding: 30px 20px;
+        }
+
+            .contact-box h3 {
+                font-size: 24px;
+            }
+
+        .contact-stats {
+            gap: 25px;
+        }
+    }
+
+    @@media (max-width: 576px) {
+        .contact-hero h1 {
+            font-size: 28px;
+        }
+
+        .contact-hero p {
+            font-size: 16px;
+        }
+
+        .info-item {
+            padding: 12px;
+        }
+
+        .map-overlay {
+            position: relative;
+            top: 0;
+            left: 0;
+            margin-bottom: 20px;
+            max-width: 100%;
+        }
+    }
+</style>
+
+
+<div class="contact-hero">
+    <div class="hero-content">
+        <h1>Get In Touch</h1>
+        <p>We're here to help. Reach out to us for any questions, feedback, or support you might need.</p>
+
+        <div class="contact-stats">
+            <div class="stat-item">
+                <i class="fas fa-clock stat-icon"></i>
+                <span class="stat-label">24/7 Support</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-headset stat-icon"></i>
+                <span class="stat-label">Quick Response</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-users stat-icon"></i>
+                <span class="stat-label">Happy to Help</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="contact-main">
+        <div class="row g-4">
+            
+            <div class="col-lg-4">
+                <div class="contact-box">
+                    <h3>Contact Information</h3>
+
+                    <div class="info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="info-content">
+                            <h5>Phone Number</h5>
+                            <p>+92 300 1234567</p>
+                            <small style="color: #888;">Available 24/7</small>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info-content">
+                            <h5>Email Address</h5>
+                            <p>support@supermart.pk</p>
+                            <small style="color: #888;">Response within 2 hours</small>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info-content">
+                            <h5>Our Location</h5>
+                            <p>123 Supermarket Street, Karachi, Pakistan</p>
+                            <small style="color: #888;">Visit our physical store</small>
+                        </div>
+                    </div>
+
+                    <div class="working-hours">
+                        <div class="hours-title">
+                            <i class="fas fa-clock"></i>
+                            <span>Working Hours</span>
+                        </div>
+                        <ul class="hours-list">
+                            <li>
+                                <span class="day">Monday - Friday</span>
+                                <span class="time">9:00 AM – 10:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Saturday</span>
+                                <span class="time">9:00 AM – 11:00 PM</span>
+                            </li>
+                            <li>
+                                <span class="day">Sunday</span>
+                                <span class="time">9:00 AM – 10:00 PM</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="col-lg-8">
+                <div class="contact-box">
+                    <h3>Send Us a Message</h3>
+                    <p style="color: #666; margin-bottom: 25px;">Fill out the form below and we'll get back to you as soon as possible.</p>
+
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name" style="font-weight: 600; color: #555; margin-bottom: 8px; display: block;">Your Name *</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email" style="font-weight: 600; color: #555; margin-bottom: 8px; display: block;">Your Email *</label>
+                                    <input type="email" id="email" class="form-control" placeholder="Enter your email address" required />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" style="font-weight: 600; color: #555; margin-bottom: 8px; display: block;">Subject *</label>
+                            <input type="text" id="subject" class="form-control" placeholder="What is this regarding?" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" style="font-weight: 600; color: #555; margin-bottom: 8px; display: block;">Your Message *</label>
+                            <textarea id="message" class="form-control" placeholder="Please write your message here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="send-btn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="map-section">
+            <div class="map-container">
+                <div class="map-overlay">
+                    <h4>📍 Our Location</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Supermarket Street, Karachi</p>
+                    <p><i class="fas fa-clock"></i> Open: 9AM - 10PM Daily</p>
+                    <p><i class="fas fa-phone"></i> +92 300 1234567</p>
+                </div>
+                <iframe width="100%"
+                        height="400"
+                        style="border:0; display: block;"
+                        src="https://maps.google.com/maps?q=Karachi&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">

@@ -1,0 +1,247 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\views\\admin\\youser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:views\\admin\\youser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\views\\admin\\orderlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:views\\admin\\orderlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\views\\admin\\userdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:views\\admin\\userdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:views\\shared\\_adminlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\views\\customer\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:views\\customer\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:views\\user\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\views\\products\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:views\\products\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\views\\home\\allproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:views\\home\\allproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|c:\\users\\pc\\documents\\asp.netcore\\eproject\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{99FC9CBC-EA61-4E76-A197-7DF5D3B2DAE6}|Eproject.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-16T14:50:48.945Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserDetails.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Admin\\UserDetails.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\UserDetails.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Admin\\UserDetails.cshtml",
+              "RelativeToolTip": "Views\\Admin\\UserDetails.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-15T19:33:46.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Youser.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Admin\\Youser.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Youser.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Admin\\Youser.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Youser.cshtml",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAE4AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-15T19:27:44.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderList.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Admin\\OrderList.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\OrderList.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Admin\\OrderList.cshtml",
+              "RelativeToolTip": "Views\\Admin\\OrderList.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-15T17:15:47.208Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-15T12:40:32.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAAAAAGAAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-15T12:32:04.657Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AllProducts.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Home\\AllProducts.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\AllProducts.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Home\\AllProducts.cshtml",
+              "RelativeToolTip": "Views\\Home\\AllProducts.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-14T17:26:39.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Products\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\Products\\Details.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Products\\Details.cshtml",
+              "RelativeToolTip": "Views\\Products\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALICAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-06T19:37:11.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\User\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\User\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\User\\Index.cshtml",
+              "RelativeToolTip": "Views\\User\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIQBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-11T18:06:58.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAEsEAAAAAAAAAAAAAFMEAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T21:50:19.654Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Customer\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Customer\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Customer\\Dashboard.cshtml",
+              "RelativeToolTip": "Views\\Customer\\Dashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL0BAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-10T18:59:04.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "Controllers\\CategoryController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-11T10:47:04.972Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-05T17:07:50.41Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_AdminLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_AdminLayout.cshtml",
+              "ToolTip": "C:\\Users\\PC\\Documents\\Asp.Netcore\\Eproject\\Views\\Shared\\_AdminLayout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_AdminLayout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkBAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-06T17:37:26.965Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

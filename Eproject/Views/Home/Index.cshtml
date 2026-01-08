@@ -1,0 +1,1119 @@
+﻿@model Eproject.ViewModel.HomeVM
+
+
+<!-- Page Contain -->
+<div class="page-contain">
+
+    <!-- Main content -->
+    <div id="main-content" class="main-content">
+        <!-- Main Slider-->
+        <div class="main-slide block-slider">
+            <ul class="biolife-carousel nav-none-on-mobile" data-slick='{"arrows": true, "dots": false, "slidesMargin": 0, "slidesToShow": 1, "infinite": true, "speed": 800}'>
+                <li>
+                    <div class="slide-contain slider-opt03__layout01">
+                        <div class="media">
+                            <div class="child-elememt">
+                                <a href="#" class="link-to">
+                                    <img src="~/Website/images/home-03/slide-01-child-01.png" width="604" height="580" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <i class="first-line">Today's Hot Deals</i>
+                            <h3 class="second-line">Daily Essentials & Groceries</h3>
+                            <p class="third-line">Best prices on all household needs. Get it delivered today!</p>
+                            <p class="buttons">
+                                <a asp-controller="Home" asp-action="AllProducts"  class="btn btn-bold">Shop now</a>
+                                <a href="#" class="btn btn-thin">View Offers</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slide-contain slider-opt03__layout01">
+                        <div class="media">
+                            <div class="child-elememt">
+                                <a href="#" class="link-to"><img src="~/Website/images/home-03/slide-01-child-01.png" width="604" height="580" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <i class="first-line">Weekly Super Savers</i>
+                            <h3 class="second-line">Grab Your Shopping Cart</h3>
+                            <p class="third-line">New stock arriving daily. Fast home delivery guaranteed.</p>
+                            <p class="buttons">
+                                <a href="#" class="btn btn-bold">Shop now</a>
+                                <a href="#" class="btn btn-thin">View Offers</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <section class="top-categories-section py-3">
+            <div class="container">
+                <div class="section-header text-center mb-3">
+                    <h2 class="section-title">
+                        <span class="title-text">Top Categories</span>
+                    </h2>
+                    <p class="section-subtitle">Explore our premium grocery collections</p>
+                </div>
+
+                <style>
+                    .top-categories-section {
+                        background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+                        padding: 30px 0;
+                        margin-top: 30px;
+                    }
+
+                    .section-header {
+                        margin-bottom: 30px;
+                    }
+
+                    .section-title {
+                        font-size: 28px;
+                        font-weight: 700;
+                        color: #222;
+                        margin-bottom: 8px;
+                        position: relative;
+                        display: inline-block;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                    }
+
+                        .section-title .title-text {
+                            position: relative;
+                            padding: 0 15px;
+                            background: linear-gradient(135deg, #ff3c2f 0%, #ff6b6b 100%);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
+                        }
+
+                    .section-subtitle {
+                        color: #666;
+                        font-size: 15px;
+                        max-width: 500px;
+                        margin: 0 auto;
+                    }
+
+                    .category-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                        gap: 20px;
+                        padding: 5px 0;
+                    }
+
+                    @@media (max-width: 1200px) {
+                        .category-grid {
+                            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                        }
+                    }
+
+                    @@media (max-width: 992px) {
+                        .category-grid {
+                            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                        }
+                    }
+
+                    @@media (max-width: 768px) {
+                        .category-grid {
+                            grid-template-columns: repeat(2, 1fr);
+                            gap: 15px;
+                        }
+
+                        .section-title {
+                            font-size: 24px;
+                        }
+                    }
+
+                    @@media (max-width: 576px) {
+                        .category-grid {
+                            grid-template-columns: 1fr;
+                            max-width: 350px;
+                            margin: 0 auto;
+                        }
+                    }
+
+                  
+                    .category-card {
+                        background: white;
+                        border-radius: 12px;
+                        overflow: hidden;
+                        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+                        transition: all 0.3s ease;
+                        border: 1px solid #f0f0f0;
+                        height: 380px;
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+                    }
+
+                        .category-card:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+                            border-color: #ff3c2f;
+                        }
+
+                    .category-badge {
+                        position: absolute;
+                        top: 12px;
+                        right: 12px;
+                        background: #ff3c2f;
+                        color: white;
+                        padding: 4px 12px;
+                        border-radius: 15px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        letter-spacing: 0.3px;
+                        z-index: 2;
+                        box-shadow: 0 2px 5px rgba(255, 60, 47, 0.3);
+                    }
+
+                   
+                    .category-image-container {
+                        position: relative;
+                        height: 200px; 
+                        overflow: hidden;
+                        background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%);
+                        flex-shrink: 0;
+                    }
+
+                       
+                        .category-image-container img.category-image {
+                            width: 100% !important;
+                            height: 100% !important;
+                            object-fit: cover !important;
+                            display: block; 
+                        }
+
+                    .category-card:hover .category-image {
+                        transform: scale(1.05);
+                    }
+
+                    .category-content {
+                        padding: 20px;
+                        flex-grow: 1;
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .category-title {
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: #222;
+                        margin: 0 0 10px;
+                        line-height: 1.3;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                    }
+
+                    .category-description {
+                        font-size: 13px;
+                        color: #666;
+                        line-height: 1.5;
+                        margin: 0 0 15px;
+                        flex-grow: 1;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                    }
+
+                    .category-footer {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding-top: 15px;
+                        border-top: 1px solid #f0f0f0;
+                        margin-top: auto;
+                    }
+
+                    .category-stats {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        font-size: 12px;
+                        color: #777;
+                        font-weight: 500;
+                    }
+
+                        .category-stats i {
+                            color: #ff3c2f;
+                            font-size: 14px;
+                        }
+
+                    .view-category-btn {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 6px;
+                        background: #ff3c2f;
+                        color: white;
+                        padding: 8px 16px;
+                        border-radius: 6px;
+                        text-decoration: none;
+                        font-weight: 600;
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.3px;
+                        transition: all 0.3s ease;
+                        border: none;
+                        cursor: pointer;
+                    }
+
+                        .view-category-btn:hover {
+                            background: #222;
+                            color: white;
+                            transform: translateX(3px);
+                            text-decoration: none;
+                        }
+
+                        .view-category-btn i {
+                            font-size: 12px;
+                            transition: transform 0.3s ease;
+                        }
+
+                        .view-category-btn:hover i {
+                            transform: translateX(2px);
+                        }
+
+                    @@keyframes fadeInUp {
+                        from {
+                            opacity: 0;
+                            transform: translateY(15px);
+                        }
+
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+
+                    .category-card {
+                        animation: fadeInUp 0.5s ease-out;
+                        animation-fill-mode: both;
+                    }
+
+                        .category-card:nth-child(1) {
+                            animation-delay: 0.1s;
+                        }
+
+                        .category-card:nth-child(2) {
+                            animation-delay: 0.2s;
+                        }
+
+                        .category-card:nth-child(3) {
+                            animation-delay: 0.3s;
+                        }
+
+                        .category-card:nth-child(4) {
+                            animation-delay: 0.4s;
+                        }
+
+                        .category-card:nth-child(5) {
+                            animation-delay: 0.5s;
+                        }
+
+                        .category-card:nth-child(6) {
+                            animation-delay: 0.6s;
+                        }
+                </style>
+
+                <div class="category-grid">
+                    @{
+                        int categoryCount = 0;
+                    }
+                    @foreach (var c in Model.RandomCategories)
+                    {
+                        categoryCount++;
+                        <div class="category-card">
+                            <div class="category-badge">
+                                Top @categoryCount
+                            </div>
+
+                            <div class="category-image-container">
+                              
+                                <img src="~/images/@c.CategoryImage"
+                                     style="height: 200px; width: auto;"
+                                     class="category-image"
+                                     alt="@c.CategoryName"
+                                     onerror="this.src='https://via.placeholder.com/400x200/f5f5f5/666?text=Category+Image'" />
+                            </div>
+
+                            <div class="category-content">
+                                <h3 class="category-title">@c.CategoryName</h3>
+                                <p class="category-description">
+                                    @c.Description
+                                </p>
+
+                                <div class="category-footer">
+                                    <div class="category-stats">
+                                        <i class="fas fa-boxes"></i>
+                                        <span>100+ Products</span>
+                                    </div>
+                                    <a href="/Products/ByCategory/@c.id" class="view-category-btn">
+                                        <span>Shop Now</span>
+                                        <i class="fas fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+       
+
+             
+        <div class="category-products-section py-5">
+            <div class="container">
+
+               
+                <div class="section-header text-center mb-5">
+                    <div class="section-subtitle">
+                        <span class="subtitle-text">Fresh Items • Best Quality • Fast Delivery</span>
+                    </div>
+                    <h2 class="section-title">Online Supermarket Products</h2>
+                    <p class="section-description">Explore premium products from each category</p>
+                </div>
+
+                <style>
+                    .category-products-section {
+                        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+                        padding: 60px 0;
+                    }
+
+                    .section-header {
+                        margin-bottom: 60px;
+                    }
+
+                    .section-subtitle {
+                        margin-bottom: 15px;
+                        margin-top: 30px;
+                    }
+
+                    .subtitle-text {
+                        display: inline-block;
+                        font-size: 16px;
+                        color: #666;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        padding: 8px 20px;
+                        background: rgba(255, 60, 47, 0.1);
+                        border-radius: 20px;
+                        border: 1px solid rgba(255, 60, 47, 0.2);
+                    }
+
+                    .section-title {
+                        font-size: 36px;
+                        font-weight: 800;
+                        color: #222;
+                        margin: 15px 0;
+                        position: relative;
+                        display: inline-block;
+                    }
+
+                        .section-title::after {
+                            content: '';
+                            position: absolute;
+                            bottom: -10px;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 80px;
+                            height: 4px;
+                            background: linear-gradient(90deg, #ff3c2f, #ff6b6b);
+                            border-radius: 2px;
+                        }
+
+                    .section-description {
+                        font-size: 17px;
+                        color: #666;
+                        max-width: 600px;
+                        margin: 25px auto 0;
+                        line-height: 1.6;
+                    }
+
+                    .category-block {
+                        margin-bottom: 60px;
+                        position: relative;
+                    }
+
+                    .category-header {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 30px;
+                        padding-bottom: 15px;
+                        border-bottom: 2px solid #f0f0f0;
+                    }
+
+                    .category-title {
+                        font-size: 28px;
+                        font-weight: 800;
+                        color: #222;
+                        margin: 0;
+                        position: relative;
+                        padding-left: 20px;
+                    }
+
+                        .category-title::before {
+                            content: '';
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 8px;
+                            height: 30px;
+                            background: #ff3c2f;
+                            border-radius: 4px;
+                        }
+
+                    .category-link {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        color: #ff3c2f;
+                        text-decoration: none;
+                        font-weight: 700;
+                        font-size: 15px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                        transition: all 0.3s ease;
+                    }
+
+                        .category-link:hover {
+                            color: #222;
+                            transform: translateX(5px);
+                        }
+
+                        .category-link i {
+                            transition: transform 0.3s ease;
+                        }
+
+                        .category-link:hover i {
+                            transform: translateX(3px);
+                        }
+
+                    .products-grid {
+                        display: grid;
+                        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                        gap: 25px;
+                    }
+
+                    @@media (max-width: 1200px) {
+                        .products-grid
+
+                    {
+                        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                    }
+
+                    }
+
+                    @@media (max-width: 768px) {
+                        .products-grid
+
+                    {
+                        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+                        gap: 20px;
+                    }
+
+                    }
+
+                    @@media (max-width: 576px) {
+                        .products-grid
+
+                    {
+                        grid-template-columns: 1fr;
+                        max-width: 320px;
+                        margin: 0 auto;
+                    }
+
+                    }
+
+                    .product-card {
+                        background: white;
+                        border-radius: 16px;
+                        overflow: hidden;
+                        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+                        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+                        border: 2px solid white;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+                    }
+
+                        .product-card:hover {
+                            transform: translateY(-10px);
+                            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+                            border-color: #ff3c2f;
+                        }
+
+                    .product-badge {
+                        position: absolute;
+                        top: 15px;
+                        left: 15px;
+                        z-index: 2;
+                    }
+
+                    .discount-badge {
+                        background: linear-gradient(90deg, #ff3c2f, #ff6b6b);
+                        color: white;
+                        padding: 6px 12px;
+                        border-radius: 20px;
+                        font-size: 13px;
+                        font-weight: 800;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 5px;
+                        box-shadow: 0 4px 12px rgba(255, 60, 47, 0.3);
+                    }
+
+                    .category-badge {
+                        background: rgba(0, 0, 0, 0.8);
+                        color: white;
+                        padding: 4px 10px;
+                        border-radius: 15px;
+                        font-size: 11px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        margin-top: 5px;
+                        backdrop-filter: blur(10px);
+                    }
+
+                    .product-image-container {
+                        position: relative;
+                        height: 220px;
+                        background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        overflow: hidden;
+                    }
+
+                    .product-image {
+                        max-width: 80%;
+                        max-height: 80%;
+                        object-fit: contain;
+                        transition: transform 0.5s ease;
+                    }
+
+                    .product-card:hover .product-image {
+                        transform: scale(1.1);
+                    }
+
+                    .product-content {
+                        padding: 20px;
+                        flex-grow: 1;
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+                    }
+
+                        .product-content::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 20px;
+                            right: 20px;
+                            height: 1px;
+                            background: linear-gradient(90deg, transparent, #e8e8e8, transparent);
+                        }
+
+                    .product-title {
+                        font-size: 17px;
+                        font-weight: 800;
+                        color: #222;
+                        margin: 0 0 10px;
+                        line-height: 1.4;
+                        flex-grow: 1;
+                    }
+
+                        .product-title a {
+                            color: inherit;
+                            text-decoration: none;
+                            transition: color 0.3s ease;
+                        }
+
+                            .product-title a:hover {
+                                color: #ff3c2f;
+                            }
+
+                    .product-category {
+                        font-size: 13px;
+                        color: #666;
+                        font-weight: 600;
+                        margin-bottom: 15px;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    }
+
+                        .product-category i {
+                            color: #ff3c2f;
+                            font-size: 12px;
+                        }
+
+                    .product-pricing {
+                        margin: 15px 0;
+                        padding: 15px 0;
+                        border-top: 2px dashed #f0f0f0;
+                        border-bottom: 2px dashed #f0f0f0;
+                    }
+
+                    .current-price {
+                        font-size: 24px;
+                        font-weight: 900;
+                        color: black;
+                        display: flex;
+                        align-items: baseline;
+                        gap: 5px;
+                        margin-bottom: 5px;
+                    }
+
+                    .price-currency {
+                        font-size: 16px;
+                        font-weight: 700;
+                        color: black;
+                    }
+
+                    .original-price {
+                        font-size: 16px;
+                        color: #ad0000;
+                        text-decoration: line-through;
+                        font-weight: 600;
+                        margin-right: 10px;
+                    }
+
+                    .product-stock {
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        margin: 10px 0;
+                        font-size: 13px;
+                        font-weight: 600;
+                    }
+
+                    .stock-indicator {
+                        width: 8px;
+                        height: 8px;
+                        border-radius: 50%;
+                        display: inline-block;
+                    }
+
+                    .in-stock-indicator {
+                        background: #0a8f45;
+                        box-shadow: 0 0 0 3px rgba(10, 143, 69, 0.2);
+                    }
+
+                    .product-actions {
+                        margin-top: auto;
+                        padding-top: 15px;
+                    }
+
+                    .view-details-btn {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 10px;
+                        background: linear-gradient(90deg, #ff3c2f 0%, #ff6b6b 100%);
+                        color: white;
+                        padding: 12px;
+                        border-radius: 10px;
+                        text-decoration: none;
+                        font-weight: 700;
+                        font-size: 14px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                        transition: all 0.3s ease;
+                        border: none;
+                        width: 100%;
+                    }
+
+                        .view-details-btn:hover {
+                            background: linear-gradient(90deg, #111 0%, #333 100%);
+                            transform: translateY(-2px);
+                            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+                        }
+
+                   
+                    @@keyframes fadeIn {
+                        from
+
+                    {
+                        opacity: 0;
+                        transform: translateY(20px);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+
+                    }
+
+                    .category-block {
+                        animation: fadeIn 0.6s ease-out;
+                    }
+
+                    .product-card {
+                        animation: fadeIn 0.4s ease-out;
+                    }
+                </style>
+
+               
+                @foreach (var block in Model.CategoryProducts)
+                {
+                    <div class="category-block">
+                        <div class="category-header">
+                            <h3 class="category-title">@block.Key</h3>
+                            <a href="/Products/ByCategory/@block.Value.FirstOrDefault()?.CategoryId" class="category-link">
+                                <span>View All</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+
+                        <div class="products-grid">
+                            @foreach (var p in block.Value)
+                            {
+                                var hasDiscount = p.discount > p.unitCost;
+                                var discountPercent = hasDiscount ? ((p.discount - p.unitCost) * 100) / p.discount : 0;
+
+                                <div class="product-card">
+                                    <div class="product-badge">
+                                        @if (hasDiscount)
+                                        {
+                                            <div class="discount-badge">
+                                                <i class="fas fa-tag"></i> @Math.Round(discountPercent)% OFF
+                                            </div>
+                                        }
+                                        <div class="category-badge">
+                                            @p.Category?.CategoryName
+                                        </div>
+                                    </div>
+
+                                    <div class="product-image-container">
+                                        <a href="/Products/Details/@p.id">
+                                            <img src="~/images/@p.image" style="height: 250px; width: auto;" class="product-image" alt="@p.ProductName"
+                                                 onerror="this.src='https://via.placeholder.com/300x220/f5f5f5/666?text=Product+Image'" />
+                                        </a>
+                                    </div>
+
+                                    <div class="product-content">
+                                        <h4 class="product-title">
+                                            <a href="/Products/Details/@p.id">@p.ProductName</a>
+                                        </h4>
+
+                                        <div class="product-pricing">
+                                            <div class="current-price">
+                                                <span class="price-currency">₹</span>@p.unitCost
+                                                @if (hasDiscount)
+                                                {
+                                                    <span class="original-price">₹@p.discount</span>
+                                                }
+                                            </div>
+                                        </div>
+
+                                        <div class="product-stock">
+                                            <span class="stock-indicator @(p.quantity > 0 ? "in-stock-indicator" : "out-stock-indicator")"></span>
+                                            <span>
+                                                @if (p.quantity > 0)
+                                                {
+                                                    <text>In Stock</text>
+                                                }
+                                                else
+                                                {
+                                                    <text>Out of Stock</text>
+                                                }
+                                            </span>
+                                        </div>
+
+                                        <div class="product-actions">
+                                            <a href="/Products/Details/@p.id" class="view-details-btn">
+                                                <i class="fas fa-eye"></i>
+                                                <span>View Details</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <!--Block 04: Banner Promotion 01 -->
+    <div class="banner-promotion-01 xs-margin-top-50px sm-margin-top-11px">
+        <div class="biolife-banner promotion biolife-banner__promotion">
+            <div class="banner-contain">
+                <div class="media background-biolife-banner__promotion">
+                    <div class="img-moving position-1">
+                        <img src="~/Website/images/home-03/img-moving-pst-1.png" width="149" height="139" alt="img msv">
+                    </div>
+                    <div class="img-moving position-2">
+                        <img src="~/Website/images/home-03/img-moving-pst-2.png" width="185" height="265" alt="img msv">
+                    </div>
+                    <div class="img-moving position-3">
+                        <img src="~/Website/images/home-03/img-moving-pst-3-cut.png" width="384" height="151" alt="img msv">
+                    </div>
+                    <div class="img-moving position-4">
+                        <img src="~/Website/images/home-03/img-moving-pst-4.png" width="198" height="269" alt="img msv">
+                    </div>
+                </div>
+                <div class="text-content">
+                    <div class="container text-wrap">
+                        <i class="first-line">Healthy Fruit juice</i>
+                        <span class="second-line">Vegetable Always fresh</span>
+                        <p class="third-line">Food Heaven Made Easy sounds like the name of an amazingly delicious food delivery service, but don't be fooled...</p>
+                        <div class="product-detail">
+                            <p class="txt-price"><span>Only:</span>$8.00</p>
+                            <a href="#" class="btn add-to-cart-btn">add to cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Block 05: Banner Promotion 02-->
+    <div class="banner-promotion-02 z-index-20">
+        <div class="biolife-banner promotion2 biolife-banner__promotion2">
+            <div class="banner-contain">
+                <div class="container">
+                    <div class="media"></div>
+                    <div class="text-content">
+                        <b class="first-line">Your Daily Needs,</b>
+                        <span class="second-line">Delivered to Your Door <i>Fresh & Organic</i></span>
+                        <p class="third-line">Skip the long lines and traffic. Get all your essential groceries, from fresh produce to pantry staples, with just a few clicks. Quality guaranteed, convenience delivered.</p>
+                        <p class="buttons">
+                            <a href="#" class="btn btn-bold">Shop Groceries Now</a>
+                            <a href="#" class="btn btn-thin">Explore Deals</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <!-- Brand Slider Section -->
+        <div class="brand-slide background-fafafa py-4" style="margin-top: 30px;">
+            <div class="container">
+                <div class="section-header text-center mb-4">
+                    <h3 class="brand-title">
+                        <span class="brand-text">Top Brands</span>
+                    </h3>
+                    <p class="brand-subtitle">Trusted by thousands of customers</p>
+                </div>
+
+                <style>
+                    .brand-slide {
+                        background: #fafafa;
+                        padding: 40px 0;
+                    }
+
+                    .section-header {
+                        margin-bottom: 30px;
+                    }
+
+                    .brand-title {
+                        font-size: 28px;
+                        font-weight: 700;
+                        color: #222;
+                        margin-bottom: 8px;
+                        position: relative;
+                        display: inline-block;
+                    }
+
+                    .brand-text {
+                        position: relative;
+                        padding: 0 20px;
+                        background: linear-gradient(135deg, #ff3c2f 0%, #ff6b6b 100%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                    }
+
+                    .brand-subtitle {
+                        color: #666;
+                        font-size: 15px;
+                        max-width: 500px;
+                        margin: 0 auto;
+                    }
+
+                    .biolife-carousel {
+                        margin-bottom: 50px !important;
+                    }
+
+                    .biolife-brd-container {
+                        background: white;
+                        border-radius: 12px;
+                        padding: 20px;
+                        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                        transition: all 0.3s ease;
+                        height: 280px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid #f0f0f0;
+                    }
+
+                        .biolife-brd-container:hover {
+                            transform: translateY(-5px);
+                            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+                            border-color: #ff3c2f;
+                        }
+
+                        .biolife-brd-container figure {
+                            width: 100%;
+                            height: 160px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin: 0;
+                            padding: 10px;
+                        }
+
+                        .biolife-brd-container img {
+                            max-width: 100%;
+                            max-height: 100%;
+                            object-fit: contain;
+                            transition: transform 0.3s ease;
+                        }
+
+                        .biolife-brd-container:hover img {
+                            transform: scale(1.05);
+                        }
+
+                        .biolife-brd-container p {
+                            font-weight: 700;
+                            margin-top: 15px;
+                            color: #222;
+                            font-size: 16px;
+                            text-align: center;
+                            line-height: 1.3;
+                            padding: 0 10px;
+                        }
+
+                        .biolife-brd-container .link {
+                            text-decoration: none;
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                    
+                    .slick-prev, .slick-next {
+                        width: 40px;
+                        height: 40px;
+                        background: #ff3c2f !important;
+                        border-radius: 50%;
+                        z-index: 10;
+                    }
+
+                        .slick-prev:hover, .slick-next:hover {
+                            background: #222 !important;
+                        }
+
+                        .slick-prev:before, .slick-next:before {
+                            color: white;
+                            font-size: 20px;
+                        }
+
+                    .slick-prev {
+                        left: -50px;
+                    }
+
+                    .slick-next {
+                        right: -50px;
+                    }
+
+                    
+                    @@media (max-width: 1200px) {
+                        .slick-prev {
+                            left: -20px;
+                        }
+
+                        .slick-next {
+                            right: -20px;
+                        }
+                    }
+
+                    @@media (max-width: 768px) {
+                        .brand-title {
+                            font-size: 24px;
+                        }
+
+                        .biolife-brd-container {
+                            height: 250px;
+                            padding: 15px;
+                        }
+
+                            .biolife-brd-container figure {
+                                height: 140px;
+                            }
+                    }
+
+                    @@media (max-width: 576px) {
+                        .brand-slide {
+                            padding: 30px 0;
+                        }
+
+                        .biolife-brd-container {
+                            height: 220px;
+                        }
+
+                            .biolife-brd-container figure {
+                                height: 120px;
+                            }
+                    }
+                </style>
+
+                <ul class="biolife-carousel nav-center-bold nav-none-on-mobile"
+                    data-slick='{"rows":1,"arrows":true,"dots":false,"infinite":false,"speed":400,
+                  "slidesMargin":30,"slidesToShow":4,
+                  "responsive":[
+                      {"breakpoint":1200,"settings":{"slidesToShow":4}},
+                      {"breakpoint":992,"settings":{"slidesToShow":3}},
+                      {"breakpoint":768,"settings":{"slidesToShow":2}},
+                      {"breakpoint":450,"settings":{"slidesToShow":1}}
+                  ]}'>
+
+                    @foreach (var b in Model.RandomBrands)
+                    {
+                        <li>
+                            <div class="biolife-brd-container text-center">
+                                <a href="#" class="link">
+                                    <figure>
+                                        <img src="~/brand/@b.BrandImage" alt="@b.BrandName" />
+                                    </figure>
+
+                                    <p>@b.BrandName</p>
+                                </a>
+                            </div>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

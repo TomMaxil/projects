@@ -1,0 +1,232 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Category
+
+<div class="main-content">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1>Add Category</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a asp-controller="Category" asp-action="Index">Category</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Category</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Category Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <form asp-controller="Category" asp-action="Create" method="post" class="form">
+                            <div class="form-group row align-items-center">
+                                <label class="col-md-3 col-form-label text-md-right" asp-for="Name">Category Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" asp-for="Name" required placeholder="Enter category name">
+                                    <span class="text-danger" asp-validation-for="Name"></span>
+                                    <div class="form-text">
+                                        Enter a unique name for your category
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-plus"></i> Add Category
+                                    </button>
+                                    <a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary">
+                                        <i class="fas fa-arrow-left"></i> Back to List
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+   
+    .main-content {
+        margin-left: 250px;
+        padding: 30px;
+        min-height: 100vh;
+        background: #f5f7fa;
+    }
+
+    .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Page Header */
+    .page-header {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e3e6f0;
+    }
+
+        .page-header h1 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+    /* Breadcrumb */
+    .breadcrumb {
+        background: transparent;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .breadcrumb-item a {
+        color: #6c757d;
+        text-decoration: none;
+    }
+
+    .breadcrumb-item.active {
+        color: #2c3e50;
+        font-weight: 500;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+        content: ">";
+        color: #6c757d;
+    }
+
+    /* Card Styling */
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        background: white;
+        margin-bottom: 30px;
+    }
+
+    .card-header {
+        background: #2c3e50;
+        color: white;
+        border-radius: 10px 10px 0 0 !important;
+        padding: 15px 25px;
+        border: none;
+    }
+
+        .card-header h4 {
+            margin: 0;
+            font-weight: 500;
+        }
+
+    .card-body {
+        padding: 30px;
+    }
+
+    /* Form Styling */
+    .form-label {
+        font-weight: 500;
+        color: #2c3e50;
+        margin-bottom: 8px;
+    }
+
+    .form-control {
+        border: 1px solid #d1d3e2;
+        border-radius: 5px;
+        padding: 10px 15px;
+        transition: all 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: #2c3e50;
+            box-shadow: 0 0 0 0.2rem rgba(44, 62, 80, 0.25);
+        }
+
+    .form-text {
+        color: #6c757d;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    /* Button Styling */
+    .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn-primary {
+        background: #2c3e50;
+        color: white;
+        border: 1px solid #2c3e50;
+    }
+
+        .btn-primary:hover {
+            background: #1a252f;
+            border-color: #1a252f;
+        }
+
+    .btn-outline-secondary {
+        background: transparent;
+        color: #6c757d;
+        border: 1px solid #d1d3e2;
+    }
+
+        .btn-outline-secondary:hover {
+            background: #f8f9fa;
+            color: #2c3e50;
+            border-color: #2c3e50;
+        }
+
+    /* Responsive Design */
+    @@media (max-width: 768px) {
+        .main-content
+
+    {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .form-group.row {
+        display: block;
+    }
+
+    .col-md-3, .col-md-6 {
+        width: 100%;
+        text-align: left;
+    }
+
+    .col-md-3 {
+        margin-bottom: 10px;
+    }
+
+    }
+
+    /* Validation Error */
+    .text-danger {
+        color: #e74c3c !important;
+        font-size: 14px;
+        margin-top: 5px;
+        display: block;
+    }
+
+    /* Icon styling - if using Font Awesome */
+    .fas {
+        font-size: 14px;
+    }
+</style>
+
+<!-- If you don't have Font Awesome, you can remove the icons or add this CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

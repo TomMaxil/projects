@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    @model Brand
+}
+
+
+
+
+
+<div class="main-content">
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">ADD BRAND</h4>
+                        </div>
+                        <div class="card-body">
+                            <form asp-controller="Brand" asp-action="Create" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label asp-for="BrandName" class="text-opacity-100">Brand Name</label>
+                                    <input type="text" class="form-control" asp-for="BrandName">
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="BrandImage" class="text-opacity-100">Brand Image</label>
+                                    <input type="file" class="form-control" asp-for="BrandImage" />
+                                </div>
+
+                                <button class="btn btn-primary" type="submit">Create</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+

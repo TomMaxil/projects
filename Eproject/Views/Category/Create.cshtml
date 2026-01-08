@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    @model Category
+}
+
+
+
+
+
+<div class="main-content">
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">ADD CATEGORY</h4>
+                        </div>
+                        <div class="card-body">
+                            <form asp-controller="Category" asp-action="Create" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label asp-for="CategoryName" class="text-opacity-100">Category Name</label>
+                                    <input type="text" class="form-control" asp-for="CategoryName">
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Description" class="text-opacity-100">Description</label>
+                                    <input type="text" class="form-control" asp-for="Description">
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="CategoryImage" class="text-opacity-100">Category Image</label>
+                                    <input type="file" class="form-control" asp-for="CategoryImage" />
+                                </div>
+
+                                <button class="btn btn-primary" type="submit">Create</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+

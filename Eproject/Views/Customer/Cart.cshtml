@@ -1,0 +1,815 @@
+﻿@model List<CartItem>
+
+@{
+    Layout = "_Layout";
+}
+
+<style>
+    .cart-container {
+        background: linear-gradient(135deg, #f9f9f9 0%, #fff5f5 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .cart-header {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .cart-title {
+        font-size: 42px;
+        font-weight: 800;
+        background: linear-gradient(90deg, #ff3c2f 0%, #111 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 15px;
+    }
+
+    .cart-subtitle {
+        color: #666;
+        font-size: 18px;
+        max-width: 600px;
+        margin: 0 auto 30px;
+        line-height: 1.6;
+    }
+
+    .cart-badge {
+        display: inline-block;
+        background: linear-gradient(90deg, #ff3c2f, #ff6b6b);
+        color: white;
+        padding: 8px 25px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        box-shadow: 0 5px 15px rgba(255, 60, 47, 0.2);
+    }
+
+    .empty-cart {
+        background: white;
+        border-radius: 20px;
+        padding: 80px 40px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f0f0f0;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .empty-icon {
+        font-size: 80px;
+        color: #ff3c2f;
+        margin-bottom: 30px;
+        opacity: 0.7;
+    }
+
+    .empty-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+    }
+
+    .empty-subtitle {
+        font-size: 18px;
+        color: #666;
+        margin-bottom: 40px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    .btn-start-shopping {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: linear-gradient(90deg, #ff3c2f 0%, #ff6b6b 100%);
+        color: white;
+        padding: 16px 35px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+        .btn-start-shopping:hover {
+            background: linear-gradient(90deg, #111 0%, #333 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+    .cart-content {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .cart-summary-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid #f0f0f0;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .cart-summary-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff3c2f, #111, #ff3c2f);
+        }
+
+    .summary-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .summary-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #222;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+        .summary-title i {
+            color: #ff3c2f;
+        }
+
+    .cart-stats {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 20px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        font-weight: 600;
+        color: #222;
+    }
+
+        .stat-item i {
+            color: #ff3c2f;
+        }
+
+    .cart-table-section {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid #f0f0f0;
+        margin-bottom: 40px;
+    }
+
+    .table-header {
+        background: linear-gradient(90deg, #111 0%, #222 100%);
+        padding: 25px 30px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+        .table-header h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+            .table-header h3 i {
+                color: #ff3c2f;
+            }
+
+    .item-count {
+        background: #ff3c2f;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .cart-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .cart-table thead {
+            background: #f9f9f9;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .cart-table th {
+            padding: 20px;
+            text-align: left;
+            font-weight: 700;
+            color: #222;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 3px solid #ff3c2f;
+        }
+
+        .cart-table tbody tr {
+            border-bottom: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+
+            .cart-table tbody tr:hover {
+                background: #fff9f9;
+            }
+
+        .cart-table td {
+            padding: 25px 20px;
+            color: #444;
+            font-weight: 500;
+            vertical-align: middle;
+        }
+
+    .product-cell {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .product-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid #f0f0f0;
+        background: white;
+        flex-shrink: 0;
+    }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+            padding: 10px;
+        }
+
+        .product-image:hover img {
+            transform: scale(1.05);
+        }
+
+    .product-info {
+        flex: 1;
+    }
+
+    .product-name {
+        font-size: 18px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .product-name i {
+            color: #ff3c2f;
+            font-size: 16px;
+        }
+
+    .product-category {
+        font-size: 14px;
+        color: #666;
+        background: #f5f5f5;
+        padding: 4px 12px;
+        border-radius: 6px;
+        display: inline-block;
+    }
+
+    .quantity-cell {
+        text-align: center;
+    }
+
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .qty-btn {
+        width: 35px;
+        height: 35px;
+        background: #f9f9f9;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #222;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .qty-btn:hover {
+            background: #ff3c2f;
+            border-color: #ff3c2f;
+            color: white;
+        }
+
+    .quantity-display {
+        width: 50px;
+        text-align: center;
+        font-weight: 700;
+        font-size: 16px;
+        color: #222;
+    }
+
+    .price-cell {
+        text-align: center;
+    }
+
+    .price-display {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .unit-price {
+        font-size: 16px;
+        color: #666;
+    }
+
+    .total-price {
+        font-size: 20px;
+        font-weight: 800;
+        color: #222;
+    }
+
+    .currency {
+        color: #ff3c2f;
+        font-size: 18px;
+        margin-right: 5px;
+    }
+
+    .action-cell {
+        text-align: center;
+    }
+
+    .remove-form {
+        margin: 0;
+    }
+
+    .btn-remove {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(90deg, #ff3c2f 0%, #ff6b6b 100%);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+        .btn-remove:hover {
+            background: linear-gradient(90deg, #111 0%, #333 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+    .cart-totals-section {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        border: 1px solid #f0f0f0;
+        margin-bottom: 40px;
+    }
+
+    .totals-header {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: #222;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+        .totals-header i {
+            color: #ff3c2f;
+        }
+
+    .totals-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+
+    .total-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: #f9f9f9;
+        border-radius: 12px;
+        border: 1px solid #f0f0f0;
+    }
+
+    .total-label {
+        font-size: 16px;
+        color: #666;
+        font-weight: 600;
+    }
+
+    .total-value {
+        font-size: 20px;
+        font-weight: 700;
+        color: #222;
+    }
+
+    .grand-total {
+        background: linear-gradient(90deg, #111 0%, #222 100%);
+        color: white;
+        border: none;
+        padding: 25px 30px;
+        margin-top: 20px;
+    }
+
+        .grand-total .total-label {
+            color: white;
+            font-size: 18px;
+        }
+
+        .grand-total .total-value {
+            color: white;
+            font-size: 28px;
+        }
+
+        .grand-total .currency {
+            color: #ff6b6b;
+        }
+
+    .cart-actions {
+        display: flex;
+        gap: 20px;
+        margin-top: 40px;
+        flex-wrap: wrap;
+    }
+
+    .btn-continue-shopping {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: white;
+        color: #222;
+        padding: 16px 35px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        border: 2px solid #ddd;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        flex: 1;
+        min-width: 200px;
+        justify-content: center;
+    }
+
+        .btn-continue-shopping:hover {
+            background: #f9f9f9;
+            border-color: #ff3c2f;
+            color: #ff3c2f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+    .btn-checkout {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: linear-gradient(90deg, #ff3c2f 0%, #ff6b6b 100%);
+        color: white;
+        padding: 16px 35px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        border: none;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        flex: 1;
+        min-width: 200px;
+        justify-content: center;
+    }
+
+        .btn-checkout:hover {
+            background: linear-gradient(90deg, #111 0%, #333 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+    @@media screen and (max-width: 992px) {
+        .cart-table {
+            display: block;
+            overflow-x: auto;
+        }
+
+            .cart-table th,
+            .cart-table td {
+                padding: 15px;
+            }
+
+        .product-cell {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .product-image {
+            width: 80px;
+            height: 80px;
+        }
+    }
+
+    @@media screen and (max-width: 768px) {
+        .cart-title {
+            font-size: 32px;
+        }
+
+        .summary-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .cart-stats {
+            width: 100%;
+            justify-content: space-between;
+        }
+
+        .cart-actions {
+            flex-direction: column;
+        }
+
+        .btn-continue-shopping,
+        .btn-checkout {
+            width: 100%;
+        }
+    }
+
+    @@media screen and (max-width: 576px) {
+        .cart-title {
+            font-size: 28px;
+        }
+
+        .empty-title {
+            font-size: 24px;
+        }
+
+        .totals-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .cart-table td {
+            padding: 15px 10px;
+        }
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="cart-container">
+    <div class="cart-content">
+       
+        <div class="cart-header">
+            <h1 class="cart-title">My Shopping Cart</h1>
+            <p class="cart-subtitle">Review and manage your grocery items before checkout</p>
+            <span class="cart-badge">
+                <i class="fas fa-shopping-cart"></i> SUPERMART CART
+            </span>
+        </div>
+
+        @if (!Model.Any())
+        {
+           
+            <div class="empty-cart">
+                <div class="empty-icon">
+                    <i class="fas fa-shopping-basket"></i>
+                </div>
+                <h2 class="empty-title">Your Cart is Empty</h2>
+                <p class="empty-subtitle">
+                    Add delicious groceries to your cart and enjoy fast delivery from SUPERMART
+                </p>
+                <a asp-controller="Customer" asp-action="Index" class="btn-start-shopping">
+                    <i class="fas fa-store"></i> Start Shopping
+                </a>
+            </div>
+        }
+        else
+        {
+          
+            <div class="cart-summary-card">
+                <div class="summary-header">
+                    <div class="summary-title">
+                        <i class="fas fa-shopping-bag"></i> Cart Summary
+                    </div>
+                    <div class="cart-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-box"></i>
+                            <span>@Model.Count Items</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-layer-group"></i>
+                            <span>@Model.Sum(item => item.Quantity) Units</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-indian-rupee-sign"></i>
+                            <span>₹@Model.Sum(item => item.Quantity * item.Product.unitCost) Total</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="cart-table-section">
+                <div class="table-header">
+                    <h3><i class="fas fa-list-alt"></i> Cart Items</h3>
+                    <span class="item-count">@Model.Count Items</span>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-center">Price</th>
+                                <th class="text-center">Total</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                var itemTotal = item.Quantity * item.Product.unitCost;
+
+                                <tr>
+                                    <td>
+                                        <div class="product-cell">
+                                            <div class="product-image">
+                                                <img src="~/images/@item.Product.image" alt="@item.Product.ProductName" />
+                                            </div>
+                                            <div class="product-info">
+                                                <div class="product-name">
+                                                    <i class="fas fa-tag"></i> @item.Product.ProductName
+                                                </div>
+                                                <span class="product-category">Grocery Item</span>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="quantity-cell">
+                                        <div class="quantity-control">
+                                            @* <button class="qty-btn minus" data-id="@item.CartItemId">-</button> *@
+                                            <div class="quantity-display">@item.Quantity</div>
+                                            @* <button class="qty-btn plus" data-id="@item.CartItemId">+</button> *@
+                                        </div>
+                                    </td>
+
+                                    <td class="price-cell">
+                                        <div class="price-display">
+                                            <span class="unit-price">Unit Price</span>
+                                            <div>
+                                                <span class="currency">₹</span>@item.Product.unitCost
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="price-cell">
+                                        <div class="price-display">
+                                            <span class="unit-price">Item Total</span>
+                                            <div class="total-price">
+                                                <span class="currency">₹</span>@itemTotal
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="action-cell">
+                                        <form asp-controller="Customer" asp-action="RemoveCartItem" method="post" class="remove-form">
+                                            @Html.AntiForgeryToken()
+                                            <input type="hidden" name="cartItemId" value="@item.CartItemId" />
+                                            <button type="submit" class="btn-remove">
+                                                <i class="fas fa-trash"></i> Remove
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+           
+            <div class="cart-totals-section">
+                <div class="totals-header">
+                    <i class="fas fa-calculator"></i> Order Summary
+                </div>
+
+                @{
+                    var subtotal = Model.Sum(item => item.Quantity * item.Product.unitCost);
+                    var deliveryFee = 0;
+                    var tax = 0;
+                    var grandTotal = subtotal + deliveryFee + tax;
+                }
+
+                <div class="totals-grid">
+                    <div class="total-item">
+                        <span class="total-label">Subtotal</span>
+                        <span class="total-value">
+                            <span class="currency">₹</span>@subtotal
+                        </span>
+                    </div>
+
+                    <div class="total-item">
+                        <span class="total-label">Delivery Fee</span>
+                        <span class="total-value">
+                            <span class="currency">₹</span>@deliveryFee
+                        </span>
+                    </div>
+
+                    <div class="total-item">
+                        <span class="total-label">Tax (GST)</span>
+                        <span class="total-value">
+                            <span class="currency">₹</span>@tax
+                        </span>
+                    </div>
+                </div>
+
+                <div class="total-item grand-total">
+                    <span class="total-label">Grand Total</span>
+                    <span class="total-value">
+                        <span class="currency">₹</span>@grandTotal
+                    </span>
+                </div>
+            </div>
+
+           
+            <div class="cart-actions">
+                <a asp-controller="Home" asp-action="Index" class="btn-continue-shopping">
+                    <i class="fas fa-arrow-left"></i> Continue Shopping
+                </a>
+
+                <a asp-controller="Checkout" asp-action="Index" class="btn-checkout">
+                    <i class="fas fa-lock"></i> Proceed to Checkout
+                </a>
+            </div>
+
+            
+            <div style="text-align: center; margin-top: 30px; color: #666; font-size: 14px;">
+                <p>
+                    <i class="fas fa-shield-alt"></i> Secure checkout •
+                    <i class="fas fa-truck"></i> 30-minute delivery •
+                    <i class="fas fa-undo"></i> Easy returns
+                </p>
+            </div>
+        }
+    </div>
+</div>

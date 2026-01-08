@@ -1,0 +1,888 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model Eproject.ViewModel.SearchVM
+
+
+<style>
+    .search-page {
+        background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+        font-family: 'Segoe UI', system-ui, sans-serif;
+    }
+
+    .search-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .search-header {
+        text-align: center;
+        padding: 30px 0 40px;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+        .search-header::after {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff3c2f, #ff6b6b);
+            border-radius: 2px;
+        }
+
+    .search-title {
+        font-size: 36px;
+        font-weight: 800;
+        color: #222;
+        margin: 0 0 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .search-keyword {
+        color: #ff3c2f;
+        font-weight: 900;
+    }
+
+    .search-results {
+        font-size: 18px;
+        color: #666;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(255, 60, 47, 0.1);
+        padding: 8px 20px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 60, 47, 0.2);
+    }
+
+    .search-layout {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+
+    @@media (max-width: 992px) {
+        .search-layout
+
+    {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-sidebar {
+        order: 2;
+    }
+
+    .products-grid-container {
+        order: 1;
+    }
+
+    }
+
+    .filter-sidebar {
+        position: sticky;
+        top: 30px;
+        height: fit-content;
+    }
+
+    .filter-card {
+        background: white;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border: 2px solid white;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .filter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff3c2f, #ff6b6b);
+        }
+
+    .filter-title {
+        font-size: 20px;
+        font-weight: 800;
+        color: #222;
+        margin: 0 0 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+        .filter-title i {
+            color: #ff3c2f;
+            font-size: 18px;
+        }
+
+    .filter-section {
+        margin-bottom: 20px;
+    }
+
+        .filter-section:last-child {
+            margin-bottom: 0;
+        }
+
+    .filter-label {
+        font-size: 14px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 8px;
+        display: block;
+        padding-left: 2px;
+    }
+
+    .filter-select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 2px solid #e8e8e8;
+        border-radius: 8px;
+        font-size: 14px;
+        background: #fcfcfc;
+        color: #333;
+        transition: all 0.3s ease;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ff3c2f' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        background-size: 12px;
+        cursor: pointer;
+    }
+
+        .filter-select:focus {
+            border-color: #ff3c2f;
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 60, 47, 0.1);
+        }
+
+        .filter-select option {
+            padding: 8px;
+            background: white;
+            color: #333;
+            font-size: 14px;
+        }
+
+    .price-range-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 5px;
+    }
+
+    .price-input {
+        width: 100%;
+        padding: 10px 12px;
+        border: 2px solid #e8e8e8;
+        border-radius: 8px;
+        font-size: 14px;
+        background: #fcfcfc;
+        color: #333;
+        transition: all 0.3s ease;
+    }
+
+        .price-input:focus {
+            border-color: #ff3c2f;
+            background: white;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 60, 47, 0.1);
+        }
+
+        .price-input::placeholder {
+            color: #999;
+            font-size: 13px;
+        }
+
+    .filter-button {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(90deg, #ff3c2f 0%, #ff6b6b 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+        .filter-button:hover {
+            background: linear-gradient(90deg, #222 0%, #333 100%);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+    .products-grid-container {
+        background: white;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border: 2px solid white;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .products-grid-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #222, #444);
+        }
+
+    .products-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .products-count {
+        font-size: 16px;
+        font-weight: 700;
+        color: #222;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .products-count i {
+            color: #ff3c2f;
+            font-size: 16px;
+        }
+
+    .sort-info {
+        font-size: 13px;
+        color: #666;
+        font-weight: 600;
+        background: #f9f9f9;
+        padding: 6px 12px;
+        border-radius: 8px;
+        border: 1px solid #e8e8e8;
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    @@media (max-width: 1200px) {
+        .products-grid
+
+    {
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    }
+
+    }
+
+    @@media (max-width: 768px) {
+        .products-grid
+
+    {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    }
+
+    @@media (max-width: 576px) {
+        .products-grid
+
+    {
+        grid-template-columns: 1fr;
+    }
+
+    }
+
+    .product-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        border: 1px solid #f0f0f0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+            border-color: #ff3c2f;
+        }
+
+    .product-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 2;
+    }
+
+    .category-badge {
+        background: rgba(0, 0, 0, 0.85);
+        color: white;
+        padding: 4px 10px;
+        border-radius: 15px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+    }
+
+    .discount-badge {
+        background: linear-gradient(90deg, #ff3c2f, #ff6b6b);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 11px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 5px;
+    }
+
+    .product-image-container {
+        position: relative;
+        height: 180px;
+        background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .product-image {
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+    }
+
+    .product-card:hover .product-image {
+        transform: scale(1.05);
+    }
+
+    .product-content {
+        padding: 15px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .product-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #222;
+        margin: 0 0 8px;
+        line-height: 1.4;
+        flex-grow: 1;
+    }
+
+        .product-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+            .product-title a:hover {
+                color: #ff3c2f;
+            }
+
+    .product-pricing {
+        margin: 10px 0;
+        padding: 10px 0;
+        border-top: 1px solid #f0f0f0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .current-price {
+        font-size: 18px;
+        font-weight: 800;
+        color: black;
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+        margin-bottom: 3px;
+    }
+
+    .price-currency {
+        font-size: 14px;
+        font-weight: 700;
+        color: black;
+    }
+
+    .original-price {
+        font-size: 13px;
+        color: #ad0000;
+        text-decoration: line-through;
+        font-weight: 600;
+        margin-right: 8px;
+    }
+
+    .product-actions {
+        margin-top: auto;
+        padding-top: 10px;
+    }
+
+    .view-details-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: #ff3c2f;
+        color: white;
+        padding: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        transition: all 0.3s ease;
+        border: none;
+        width: 100%;
+    }
+
+        .view-details-btn:hover {
+            background: #222;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+    .no-results {
+        text-align: center;
+        padding: 50px 30px;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        margin: 20px 0;
+        border: 2px dashed #e8e8e8;
+    }
+
+        .no-results i {
+            font-size: 48px;
+            color: #ddd;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .no-results h3 {
+            font-size: 22px;
+            color: #222;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .no-results p {
+            font-size: 15px;
+            color: #666;
+            max-width: 400px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .no-results .search-keyword {
+            color: #ff3c2f;
+            font-weight: 800;
+        }
+
+    .supermarket-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 40px 0;
+        padding: 20px 0;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .pagination-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: white;
+        padding: 12px 20px;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f0f0f0;
+    }
+
+    .page-info {
+        font-size: 14px;
+        color: #666;
+        font-weight: 600;
+        margin-right: 15px;
+    }
+
+    .pagination-list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 6px;
+    }
+
+    .page-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .page-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: #f8f9fa;
+        color: #333;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+    }
+
+        .page-link:hover {
+            background: #ff3c2f;
+            color: white;
+            border-color: #ff3c2f;
+        }
+
+    .page-item.active .page-link {
+        background: #222;
+        color: white;
+        border-color: #222;
+    }
+
+    .page-item.disabled .page-link {
+        background: #f5f5f5;
+        color: #ccc;
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    .page-arrow {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        background: #f8f9fa;
+        color: #333;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s ease;
+    }
+
+        .page-arrow:hover:not(.disabled) {
+            background: #ff3c2f;
+            color: white;
+        }
+
+        .page-arrow.disabled {
+            background: #f5f5f5;
+            color: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+    @@media (max-width: 768px) {
+        .search-page
+
+    {
+        padding: 20px 15px;
+    }
+
+    .search-title {
+        font-size: 28px;
+    }
+
+    .filter-card,
+    .products-grid-container {
+        padding: 20px;
+    }
+
+    .products-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .pagination-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .page-info {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    }
+
+    @@media (max-width: 576px) {
+        .search-title
+
+    {
+        font-size: 24px;
+    }
+
+    .filter-card,
+    .products-grid-container {
+        padding: 15px;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-range-container {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    }
+</style>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="search-page">
+    <div class="search-container">
+        <div class="search-header">
+            <h1 class="search-title">
+                Search Results for "<span class="search-keyword">@Model.Keyword</span>"
+            </h1>
+            <div class="search-results">
+                <i class="fas fa-search"></i>
+                <span>@Model.Products.Count results found</span>
+            </div>
+        </div>
+
+        <div class="search-layout">
+          
+            <div class="filter-sidebar">
+                <div class="filter-card">
+                    <h3 class="filter-title">
+                        <i class="fas fa-filter"></i>
+                        <span>Filters</span>
+                    </h3>
+
+                    <form method="get" action="/Products/Search">
+                        <input type="hidden" name="s" value="@Model.Keyword" />
+
+                        <div class="filter-section">
+                            <label class="filter-label">Category</label>
+                            <select name="categoryId" class="filter-select">
+                                <option value="">All Categories</option>
+                                @foreach (var c in Model.Categories)
+                                {
+                                    <option value="@c.id" selected="@(Model.CategoryId == c.id)">
+                                        @c.CategoryName
+                                    </option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="filter-section">
+                            <label class="filter-label">Brand</label>
+                            <select name="brandId" class="filter-select">
+                                <option value="">All Brands</option>
+                                @foreach (var b in Model.Brands)
+                                {
+                                    <option value="@b.id" selected="@(Model.BrandId == b.id)">
+                                        @b.BrandName
+                                    </option>
+                                }
+                            </select>
+                        </div>
+
+                        <div class="filter-section">
+                            <label class="filter-label">Price Range</label>
+                            <div class="price-range-container">
+                                <input type="number" name="minprice" class="price-input" placeholder="Min ₹" value="@Model.MinPrice" />
+                                <input type="number" name="maxprice" class="price-input" placeholder="Max ₹" value="@Model.MaxPrice" />
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <label class="filter-label">Sort By</label>
+                            <select name="sortBy" class="filter-select">
+                                <option value="">Default</option>
+                                <option value="low" selected="@(Model.SortBy == "low")">Price: Low to High</option>
+                                <option value="high" selected="@(Model.SortBy == "high")">Price: High to Low</option>
+                                <option value="latest" selected="@(Model.SortBy == "latest")">Latest</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="filter-button">
+                            <i class="fas fa-check"></i>
+                            <span>Apply Filters</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            
+            <div class="products-grid-container">
+                <div class="products-header">
+                    <div class="products-count">
+                        <i class="fas fa-boxes"></i>
+                        <span>@Model.Products.Count Products Found</span>
+                    </div>
+                    @if (!string.IsNullOrEmpty(Model.SortBy))
+                    {
+                        <div class="sort-info">
+                            Sorted by:
+                            @if (Model.SortBy == "low")
+                            {
+                                <span>Price: Low to High</span>
+                            }
+                            else if (Model.SortBy == "high")
+                            {
+
+                                <span>Price: High to Low</span>
+                            }
+                            else if (Model.SortBy == "latest")
+                            {
+
+                                <span>Latest</span>
+                            }
+                        </div>
+                    }
+                </div>
+
+                @if (Model.Products.Count == 0)
+                {
+                    <div class="no-results">
+                        <i class="fas fa-search"></i>
+                        <h3>No Products Found</h3>
+                        <p>We couldn't find any products matching "<span class="search-keyword">@Model.Keyword</span>"</p>
+                        <p>Try searching with different keywords or filters</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="products-grid">
+                        @foreach (var p in Model.Products)
+                        {
+                            var hasDiscount = p.discount > p.unitCost;
+                            var discountPercent = hasDiscount ? ((p.discount - p.unitCost) * 100) / p.discount : 0;
+
+                            <div class="product-card">
+                                <div class="product-badge">
+                                    <span class="category-badge">@p.Category?.CategoryName</span>
+                                    @if (hasDiscount)
+                                    {
+                                        <div class="discount-badge">
+                                            <i class="fas fa-tag"></i> @Math.Round(discountPercent)%
+                                        </div>
+                                    }
+                                </div>
+
+                                <div class="product-image-container">
+                                    <a href="/Products/Details/@p.id">
+                                        <img src="~/images/@p.image" style="height: 200px; width: auto;" class="product-image" alt="@p.ProductName"
+                                             onerror="this.src='https://via.placeholder.com/300x180/f5f5f5/666?text=Product+Image'" />
+                                    </a>
+                                </div>
+
+                                <div class="product-content">
+                                    <h4 class="product-title">
+                                        <a href="/Products/Details/@p.id">@p.ProductName</a>
+                                    </h4>
+
+                                    <div class="product-pricing">
+                                        <div class="current-price">
+                                            <span class="price-currency">₹</span>@p.unitCost
+                                            @if (hasDiscount)
+                                            {
+                                                <span class="original-price">₹@p.discount</span>
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="product-actions">
+                                        <a href="/Products/Details/@p.id" class="view-details-btn">
+                                            <i class="fas fa-eye"></i>
+                                            <span>View Details</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+
+        @if (Model.Totalpages > 1)
+        {
+            <div class="supermarket-pagination">
+                <div class="pagination-container">
+                    <div class="page-info">
+                        Page @Model.Currentpage of @Model.Totalpages
+                    </div>
+
+                    <ul class="pagination-list">
+                        <li class="page-item">
+                            <a class="page-arrow @(Model.Currentpage <= 1 ? "disabled" : "")"
+                               href="/Products/Search?s=@Model.Keyword&page=@(Model.Currentpage - 1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                        </li>
+
+                        @for (int i = 1; i <= Model.Totalpages; i++)
+                        {
+                            <li class="page-item @(Model.Currentpage == i ? "active" : "")">
+                                <a class="page-link"
+                                   href="/Products/Search?s=@Model.Keyword&page=@i">@i</a>
+                            </li>
+                        }
+
+                        <li class="page-item">
+                            <a class="page-arrow @(Model.Currentpage == Model.Totalpages ? "disabled" : "")"
+                               href="/Products/Search?s=@Model.Keyword&page=@(Model.Currentpage + 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        }
+    </div>
+</div>

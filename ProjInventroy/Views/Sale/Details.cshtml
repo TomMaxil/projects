@@ -1,0 +1,586 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    var invoiceNumber = "INV-" + DateTime.Now.Year.ToString() + "-" + Model.SaleId.ToString().PadLeft(6, '0');
+}
+@model Sale
+
+<div class="main-content">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1>Invoice Details</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a asp-controller="Sale" asp-action="Index">Sales</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Invoice @invoiceNumber</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h4>Invoice @invoiceNumber</h4>
+                        <div class="btn-group">
+                            <button onclick="window.print()" class="btn btn-outline-primary">
+                                <i class="fas fa-print"></i> Print Invoice
+                            </button>
+                            <button id="downloadPdf" class="btn btn-outline-danger">
+                                <i class="fas fa-file-pdf"></i> Download PDF
+                            </button>
+                            <a asp-controller="Sale" asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Back to List
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="invoice-container">
+                            <div class="invoice-header">
+                                <div class="company-info">
+                                    <h2 class="company-name">Your Company Name</h2>
+                                    <p class="company-address">
+                                        123 Business Street<br>
+                                        City, State 12345<br>
+                                        Phone: (123) 456-7890<br>
+                                        Email: info@company.com
+                                    </p>
+                                </div>
+                                <div class="invoice-info">
+                                    <div class="invoice-title">INVOICE</div>
+                                    <table class="invoice-meta">
+                                        <tr>
+                                            <td><strong>Invoice #:</strong></td>
+                                            <td>@invoiceNumber</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Invoice Date:</strong></td>
+                                            <td>@Model.SaleDate.ToShortDateString()</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Sale ID:</strong></td>
+                                            <td>@Model.SaleId</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="invoice-details">
+                                <div class="details-row">
+                                    <div class="detail-column">
+                                        <h5>Bill To</h5>
+                                        <div class="detail-content">
+                                            <strong>Customer</strong><br>
+                                            Street Address<br>
+                                            City, State ZIP<br>
+                                            Phone: (123) 456-7890<br>
+                                            Email: customer@email.com
+                                        </div>
+                                    </div>
+                                    <div class="detail-column">
+                                        <h5>Payment Information</h5>
+                                        <div class="detail-content">
+                                            <strong>Status:</strong> <span class="badge badge-success">Paid</span><br>
+                                            <strong>Payment Method:</strong> Cash<br>
+                                            <strong>Due Date:</strong> @Model.SaleDate.ToShortDateString()
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+                            <div class="invoice-table">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-left">Product</th>
+                                            <th class="text-center">Quantity</th>
+                                            <th class="text-right">Unit Price</th>
+                                            <th class="text-right">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.SaleItmes)
+                                        {
+                                            <tr>
+                                                <td class="text-left">
+                                                    <strong>@item.Product.Name</strong><br>
+                                                    <small class="text-muted">Product Code: PROD-@item.Product.ProductId.ToString().PadLeft(4, '0')</small>
+                                                </td>
+                                                <td class="text-center">@item.Quantity</td>
+                                                <td class="text-right">@item.SalePrice.ToString("C")</td>
+                                                <td class="text-right">@((item.Quantity * item.SalePrice).ToString("C"))</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="invoice-summary">
+                                <div class="summary-row">
+                                    <div class="summary-label">Subtotal:</div>
+                                    <div class="summary-value">@(Model.TotalAmount.ToString("C"))</div>
+                                </div>
+                                <div class="summary-row">
+                                    <div class="summary-label">Tax (0%):</div>
+                                    <div class="summary-value">$0.00</div>
+                                </div>
+                                <div class="summary-row">
+                                    <div class="summary-label">Discount:</div>
+                                    <div class="summary-value">$0.00</div>
+                                </div>
+                                <div class="summary-row total-row">
+                                    <div class="summary-label"><strong>Total Amount:</strong></div>
+                                    <div class="summary-value"><strong>@Model.TotalAmount.ToString("C")</strong></div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="invoice-footer">
+                                <div class="terms">
+                                    <h6>Terms & Conditions</h6>
+                                    <p>Payment is due within 30 days. Please make checks payable to Your Company Name.</p>
+                                </div>
+                                <div class="thank-you">
+                                    <h6>Thank you for your business!</h6>
+                                    <p>If you have any questions concerning this invoice, contact us at support@company.com</p>
+                                </div>
+                            </div>
+
+                            <div class="invoice-actions mt-4 text-center">
+                                <button onclick="window.print()" class="btn btn-primary">
+                                    <i class="fas fa-print"></i> Print Invoice
+                                </button>
+                                <a asp-controller="Sale" asp-action="Index" class="btn btn-outline-secondary">
+                                    <i class="fas fa-arrow-left"></i> Back to Sales
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+  
+    var invoiceNumber = '@Html.Raw(invoiceNumber)';
+
+    document.getElementById('downloadPdf')?.addEventListener('click', function() {
+        const element = document.querySelector('.invoice-container');
+
+        html2canvas(element, {
+            scale: 2,
+            useCORS: true,
+            logging: false
+        }).then(canvas => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+            const imgWidth = 210;
+            const pageHeight = 295;
+            const imgHeight = canvas.height * imgWidth / canvas.width;
+            let heightLeft = imgHeight;
+            let position = 0;
+
+            pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+            heightLeft -= pageHeight;
+
+            while (heightLeft >= 0) {
+                position = heightLeft - imgHeight;
+                pdf.addPage();
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+            }
+
+            
+            pdf.save('Invoice-' + invoiceNumber + '.pdf');
+        });
+    });
+</script>
+
+<style>
+   
+    .main-content {
+        margin-left: 250px;
+        padding: 30px;
+        min-height: 100vh;
+        background: #f5f7fa;
+    }
+
+    .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+   
+    .page-header {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e3e6f0;
+    }
+
+        .page-header h1 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+   
+    .breadcrumb {
+        background: transparent;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .breadcrumb-item a {
+        color: #6c757d;
+        text-decoration: none;
+    }
+
+    .breadcrumb-item.active {
+        color: #2c3e50;
+        font-weight: 500;
+    }
+
+   
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        background: white;
+        margin-bottom: 30px;
+    }
+
+    .card-header {
+        background: #2c3e50;
+        color: white;
+        border-radius: 10px 10px 0 0 !important;
+        padding: 15px 25px;
+        border: none;
+    }
+
+    .card-body {
+        padding: 30px;
+    }
+
+   
+    .invoice-container {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    
+    .invoice-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid #2c3e50;
+    }
+
+    .company-info .company-name {
+        color: #2c3e50;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .company-info .company-address {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .invoice-info .invoice-title {
+        font-size: 32px;
+        font-weight: 700;
+        color: #2c3e50;
+        text-align: right;
+        margin-bottom: 15px;
+    }
+
+    .invoice-meta {
+        text-align: right;
+    }
+
+        .invoice-meta tr td {
+            padding: 4px 0;
+        }
+
+        .invoice-meta td:first-child {
+            text-align: right;
+            padding-right: 10px;
+            color: #666;
+        }
+
+        .invoice-meta td:last-child {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+    
+    .invoice-details {
+        margin-bottom: 30px;
+    }
+
+    .details-row {
+        display: flex;
+        gap: 40px;
+        margin-bottom: 20px;
+    }
+
+    .detail-column {
+        flex: 1;
+    }
+
+        .detail-column h5 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+    .detail-content {
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .badge {
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .badge-success {
+        background: #d4edda;
+        color: #155724;
+    }
+
+
+    .invoice-table {
+        margin: 30px 0;
+    }
+
+        .invoice-table .table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .invoice-table thead th {
+            background: #f8f9fa;
+            color: #2c3e50;
+            font-weight: 600;
+            padding: 12px 15px;
+            border: 1px solid #dee2e6;
+        }
+
+        .invoice-table tbody td {
+            padding: 12px 15px;
+            border: 1px solid #dee2e6;
+            vertical-align: middle;
+        }
+
+        .invoice-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+   
+    .invoice-summary {
+        width: 300px;
+        margin-left: auto;
+        margin-top: 30px;
+    }
+
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+        .summary-row.total-row {
+            border-top: 2px solid #2c3e50;
+            border-bottom: none;
+            margin-top: 10px;
+            padding-top: 10px;
+            font-size: 18px;
+        }
+
+    .summary-label {
+        color: #666;
+    }
+
+    .summary-value {
+        color: #2c3e50;
+        font-weight: 500;
+    }
+
+    
+    .invoice-footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+        .invoice-footer h6 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .invoice-footer p {
+            color: #666;
+            line-height: 1.6;
+            max-width: 300px;
+        }
+
+    
+    .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 5px;
+    }
+
+    .btn-primary {
+        background: #2c3e50;
+        color: white;
+        border: 1px solid #2c3e50;
+    }
+
+        .btn-primary:hover {
+            background: #1a252f;
+            border-color: #1a252f;
+        }
+
+    .btn-outline-primary {
+        background: transparent;
+        color: #2c3e50;
+        border: 1px solid #2c3e50;
+    }
+
+        .btn-outline-primary:hover {
+            background: #2c3e50;
+            color: white;
+        }
+
+    .btn-outline-danger {
+        background: transparent;
+        color: #e74c3c;
+        border: 1px solid #e74c3c;
+    }
+
+        .btn-outline-danger:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+    .btn-secondary {
+        background: #6c757d;
+        color: white;
+        border: 1px solid #6c757d;
+    }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            border-color: #5a6268;
+        }
+
+    .invoice-actions {
+        text-align: center;
+    }
+
+   
+    @@media print {
+        body *
+
+    {
+        visibility: hidden;
+    }
+
+    .main-content,
+    .main-content * {
+        visibility: visible;
+    }
+
+    .main-content {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+
+    .page-header,
+    .card-header,
+    .breadcrumb,
+    .invoice-actions,
+    .btn-group {
+        display: none !important;
+    }
+
+    .card {
+        box-shadow: none;
+        border: none;
+    }
+
+    .invoice-container {
+        padding: 0;
+        box-shadow: none;
+    }
+
+    }
+
+    
+    @@media (max-width: 768px) {
+        .main-content
+
+    {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .invoice-header,
+    .details-row,
+    .invoice-footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .invoice-summary {
+        width: 100%;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

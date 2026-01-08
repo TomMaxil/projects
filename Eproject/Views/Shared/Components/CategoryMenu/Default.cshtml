@@ -1,0 +1,12 @@
+﻿@model List<Category>
+
+<ul class="menu clone-main-menu">
+    @foreach (var c in Model)
+    {
+        <li class="menu-item">
+            <a href="/Products/ByCategory/@c.id">
+                @c.CategoryName
+            </a>
+        </li>
+    }
+</ul>

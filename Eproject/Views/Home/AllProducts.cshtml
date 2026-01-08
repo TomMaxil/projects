@@ -1,0 +1,725 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model Eproject.ViewModel.AllProductsVM
+
+<style>
+    .supermarket-products-page {
+        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+        min-height: 100vh;
+        padding: 40px 20px;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    }
+
+    .supermarket-container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .supermarket-header {
+        text-align: center;
+        padding: 30px 0 50px;
+        position: relative;
+    }
+
+        .supermarket-header::after {
+            content: '';
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff3c2f, #ff6b6b);
+            border-radius: 2px;
+        }
+
+    .page-title {
+        font-size: 42px;
+        font-weight: 900;
+        color: #222;
+        margin: 0 0 15px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .page-subtitle {
+        font-size: 18px;
+        color: #666;
+        font-weight: 500;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+    }
+
+    .products-count-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(135deg, #ff3c2f 0%, #ff6b6b 100%);
+        color: white;
+        padding: 8px 20px;
+        border-radius: 30px;
+        font-weight: 700;
+        font-size: 14px;
+        margin-top: 20px;
+        box-shadow: 0 5px 15px rgba(255, 60, 47, 0.2);
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+        padding: 20px 0 60px;
+    }
+
+    @@media (max-width: 768px) {
+        .products-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+    }
+
+    @@media (max-width: 576px) {
+        .products-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .product-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        border: 2px solid #fff;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border-color: #ff3c2f;
+        }
+
+    .product-badge {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        z-index: 2;
+    }
+
+    .category-badge {
+        background: linear-gradient(90deg, #111 0%, #333 100%);
+        color: white;
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        display: inline-block;
+    }
+
+    .discount-badge {
+        background: linear-gradient(90deg, #ff5722, #ff7043);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 15px;
+        font-size: 13px;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+    .product-image {
+        position: relative;
+        overflow: hidden;
+        height: 220px;
+        background: linear-gradient(135deg, #f5f5f5 0%, #eeeeee 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.5s ease;
+        }
+
+    .product-card:hover .product-image img {
+        transform: scale(1.1);
+    }
+
+    .product-content {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+        .product-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 25px;
+            right: 25px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #e8e8e8, transparent);
+        }
+
+    .product-title {
+        font-size: 18px;
+        font-weight: 800;
+        color: #222;
+        margin: 0 0 15px;
+        line-height: 1.4;
+        flex-grow: 1;
+    }
+
+        .product-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .product-title a:hover {
+                color: #ff3c2f;
+            }
+
+    .product-brand {
+        font-size: 14px;
+        color: #666;
+        font-weight: 600;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .product-brand i {
+            color: #ff3c2f;
+            font-size: 13px;
+        }
+
+    .product-pricing {
+        margin: 15px 0;
+        padding: 15px 0;
+        border-top: 2px dashed #f0f0f0;
+        border-bottom: 2px dashed #f0f0f0;
+    }
+
+    .current-price {
+        font-size: 28px;
+        font-weight: 900;
+        color: black;
+        display: flex;
+        align-items: baseline;
+        gap: 5px;
+        margin-bottom: 8px;
+    }
+
+    .price-currency {
+        font-size: 18px;
+        font-weight: 700;
+        color: black;
+    }
+
+    .original-price {
+        font-size: 16px;
+        color: #ad0000;
+        text-decoration: line-through;
+        font-weight: 600;
+        margin-right: 10px;
+    }
+
+    .product-stock {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 15px 0;
+        padding: 10px 15px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .stock-indicator {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .in-stock-indicator {
+        background: #0a8f45;
+        box-shadow: 0 0 0 3px rgba(10, 143, 69, 0.2);
+    }
+
+    .out-stock-indicator {
+        background: #ff3c2f;
+        box-shadow: 0 0 0 3px rgba(255, 60, 47, 0.2);
+    }
+
+    .product-actions {
+        margin-top: auto;
+        padding-top: 20px;
+    }
+
+    .view-details-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(90deg, #ff3c2f 0%, #ff6b6b 100%);
+        color: white;
+        padding: 14px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+        border: none;
+        width: 100%;
+    }
+
+        .view-details-btn:hover {
+            background: linear-gradient(90deg, #111 0%, #333 100%);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 60, 47, 0.3);
+        }
+
+    .supermarket-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 60px 0 40px;
+        padding: 25px 0;
+        border-top: 2px solid #f0f0f0;
+    }
+
+    .pagination-container {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        background: white;
+        padding: 15px 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        border: 2px solid #f0f0f0;
+    }
+
+    .page-info {
+        font-size: 15px;
+        color: #666;
+        font-weight: 600;
+        margin-right: 20px;
+    }
+
+    .pagination-list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 8px;
+    }
+
+    .page-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .page-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        background: #f8f9fa;
+        color: #333;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+        .page-link:hover {
+            background: #ff3c2f;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 60, 47, 0.2);
+            border-color: #ff3c2f;
+        }
+
+    .page-item.active .page-link {
+        background: linear-gradient(90deg, #111 0%, #333 100%);
+        color: white;
+        border-color: #111;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .page-item.disabled .page-link {
+        background: #f5f5f5;
+        color: #ccc;
+        cursor: not-allowed;
+        opacity: 0.6;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .page-arrow {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: #f8f9fa;
+        color: #333;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+
+        .page-arrow:hover:not(.disabled) {
+            background: #ff3c2f;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 60, 47, 0.2);
+        }
+
+        .page-arrow.disabled {
+            background: #f5f5f5;
+            color: #ccc;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+    .empty-products {
+        text-align: center;
+        padding: 80px 40px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        margin: 40px 0;
+        border: 2px dashed #e8e8e8;
+    }
+
+        .empty-products i {
+            font-size: 64px;
+            color: #ddd;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .empty-products h3 {
+            font-size: 28px;
+            color: #222;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .empty-products p {
+            font-size: 16px;
+            color: #666;
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+    .supermarket-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-top: 60px;
+        padding-top: 40px;
+        border-top: 2px solid #f0f0f0;
+    }
+
+    .feature-card {
+        background: white;
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        border: 2px solid #fff;
+        transition: all 0.3s ease;
+    }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-color: #ff3c2f;
+        }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff3c2f 0%, #ff6b6b 100%);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin: 0 auto 20px;
+    }
+
+    .feature-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 10px;
+    }
+
+    .feature-desc {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    @@media (max-width: 992px) {
+        .page-title {
+            font-size: 36px;
+        }
+
+        .products-grid {
+            gap: 25px;
+        }
+
+        .supermarket-features {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @@media (max-width: 768px) {
+        .supermarket-products-page {
+            padding: 20px 15px;
+        }
+
+        .page-title {
+            font-size: 30px;
+        }
+
+        .products-grid {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+
+        .supermarket-features {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @@media (max-width: 576px) {
+        .page-title {
+            font-size: 26px;
+        }
+
+        .products-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .pagination-container {
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .page-info {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="supermarket-products-page">
+    <div class="supermarket-container">
+
+        <div class="supermarket-header">
+            <h1 class="page-title">All Products</h1>
+            <p class="page-subtitle">Explore our wide range of premium supermarket products at unbeatable prices</p>
+
+            <div class="products-count-badge">
+                <i class="fas fa-boxes"></i>
+                <span>@Model.Products.Count() Products Available</span>
+            </div>
+        </div>
+
+        @if (Model.Products.Any())
+        {
+            <div class="products-grid">
+                @foreach (var p in Model.Products)
+                {
+                    var hasDiscount = p.discount > p.unitCost;
+                    var discountPercent = hasDiscount ? ((p.discount - p.unitCost) * 100) / p.discount : 0;
+
+                    <div class="product-card">
+                        <div class="product-badge">
+                            <span class="category-badge">@p.Category?.CategoryName</span>
+                            @if (hasDiscount)
+                            {
+                                <div class="discount-badge">
+                                    <i class="fas fa-tag"></i> @Math.Round(discountPercent)% OFF
+                                </div>
+                            }
+                        </div>
+
+                        <div class="product-image">
+                            <a href="/Products/Details/@p.id">
+                                <img src="~/images/@p.image" alt="@p.ProductName" style="height: 200px; width: auto!important;"
+                                     onerror="this.src='https://via.placeholder.com/300x200?text=Product+Image'" />
+                            </a>
+                        </div>
+
+                        <div class="product-content">
+                            <h3 class="product-title">
+                                <a href="/Products/Details/@p.id">@p.ProductName</a>
+                            </h3>
+
+                            @if (p.Brand != null)
+                            {
+                                <div class="product-brand">
+                                    <i class="fas fa-copyright"></i>
+                                    <span>@p.Brand.BrandName</span>
+                                </div>
+                            }
+
+                            <div class="product-pricing">
+                                <div class="current-price">
+                                    <span class="price-currency">₹</span>@p.unitCost
+                                </div>
+
+                                @if (hasDiscount)
+                                {
+                                    <div>
+                                        <span class="original-price">₹@p.discount</span>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="product-stock">
+                                <span class="stock-indicator @(p.quantity > 0 ? "in-stock-indicator" : "out-stock-indicator")"></span>
+                                <span>
+                                    @if (p.quantity > 0)
+                                    {
+                                        <text>✅ In Stock (@p.quantity units)</text>
+                                    }
+                                    else
+                                    {
+                                        <text>❌ Out of Stock</text>
+                                    }
+                                </span>
+                            </div>
+
+                            <div class="product-actions">
+                                <a href="/Products/Details/@p.id" class="view-details-btn">
+                                    <i class="fas fa-eye"></i>
+                                    <span>View Details</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="empty-products">
+                <i class="fas fa-box-open"></i>
+                <h3>No Products Found</h3>
+                <p>We're currently updating our inventory. Please check back soon for amazing products!</p>
+            </div>
+        }
+
+        @if (Model.TotalPages > 1)
+        {
+            <div class="supermarket-pagination">
+                <div class="pagination-container">
+                    <div class="page-info">
+                        Page @Model.CurrentPage of @Model.TotalPages
+                    </div>
+
+                    <ul class="pagination-list">
+                        <li class="page-item">
+                            <a class="page-arrow @(Model.CurrentPage <= 1 ? "disabled" : "")"
+                               href="@Url.Action("AllProducts", "Products", new { page = Model.CurrentPage - 1 })">
+                                <i class="fas fa-chevron-left"></i>
+                            </a>
+                        </li>
+
+                        @for (int i = 1; i <= Model.TotalPages; i++)
+                        {
+                            <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
+                                <a class="page-link"
+                                   href="@Url.Action("AllProducts", "Products", new { page = i })">@i</a>
+                            </li>
+                        }
+
+                        <li class="page-item">
+                            <a class="page-arrow @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")"
+                               href="@Url.Action("AllProducts", "Products", new { page = Model.CurrentPage + 1 })">
+                                <i class="fas fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        }
+
+        <div class="supermarket-features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shipping-fast"></i>
+                </div>
+                <h4 class="feature-title">Free Delivery</h4>
+                <p class="feature-desc">Free shipping on orders above ₹500 across all cities</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4 class="feature-title">Quality Guaranteed</h4>
+                <p class="feature-desc">100% fresh products with quality checks at every stage</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-undo"></i>
+                </div>
+                <h4 class="feature-title">Easy Returns</h4>
+                <p class="feature-desc">7-day return policy for all supermarket products</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h4 class="feature-title">24/7 Support</h4>
+                <p class="feature-desc">Customer support available round the clock</p>
+            </div>
+        </div>
+    </div>
+</div>

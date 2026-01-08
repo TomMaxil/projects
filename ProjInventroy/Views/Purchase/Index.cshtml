@@ -1,0 +1,429 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<Purchase>
+
+<div class="main-content">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1>Purchase Records</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Purchases</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h4>All Purchases</h4>
+                        <a asp-controller="Purchase" asp-action="Create" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> New Purchase
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        @if (Model.Any())
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Purchase ID</th>
+                                            <th>Date</th>
+                                            <th>Total Amount</th>
+                                            <th>Items</th>
+                                            <th>Status</th>
+                                            <th class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var p in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <span class="badge badge-light">#PUR-@p.PurchaseId.ToString("D4")</span>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fas fa-calendar-alt text-primary me-2"></i>
+                                                        @p.PurchaseDate.ToString("dd MMM yyyy")
+                                                    </div>
+                                                    <small class="text-muted d-block">@p.PurchaseDate.ToString("hh:mm tt")</small>
+                                                </td>
+                                                <td>
+                                                    <strong class="text-success">$@p.TotalAmount.ToString("N2")</strong>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <i class="fas fa-boxes text-info me-2"></i>
+                                                        <span>@p.PurchaseItems.Count item@(p.PurchaseItems.Count != 1 ? "s" : "")</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-success">
+                                                        <i class="fas fa-check-circle me-1"></i> Completed
+                                                    </span>
+                                                </td>
+                                                <td class="text-center">
+                                                    <div class="btn-group" role="group">
+                                                        <a asp-controller="Purchase" asp-action="Details" asp-route-id="@p.PurchaseId"
+                                                           class="btn btn-sm btn-outline-info"
+                                                           title="View Details">
+                                                            <i class="fas fa-eye"></i> View
+                                                        </a>
+                                                        <a asp-controller="Purchase" asp-action="Edit" asp-route-id="@p.PurchaseId"
+                                                           class="btn btn-sm btn-outline-primary"
+                                                           title="Edit Purchase">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                        <a asp-action="Delete" asp-route-id="@p.PurchaseId"
+                                                           class="btn btn-sm btn-outline-danger"
+                                                           title="Delete Purchase"
+                                                           onclick="return confirm('Are you sure you want to delete this purchase?');">
+                                                            <i class="fas fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="summary-card p-3 bg-light rounded">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="text-muted">Total Purchases:</span>
+                                            <strong class="text-primary">@Model.Count</strong>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-2">
+                                            <span class="text-muted">Total Amount:</span>
+                                            <strong class="text-success">$@Model.Sum(p => p.TotalAmount).ToString("N2")</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="empty-state">
+                                <div class="empty-state-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <h3>No Purchase Records Found</h3>
+                                <p class="lead">
+                                    You haven't made any purchases yet. Start by creating your first purchase record.
+                                </p>
+                                <a asp-controller="Purchase" asp-action="Create" class="btn btn-primary mt-3">
+                                    <i class="fas fa-plus"></i> Create First Purchase
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .main-content {
+        margin-left: 250px;
+        padding: 30px;
+        min-height: 100vh;
+        background: #f5f7fa;
+    }
+
+    .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .page-header {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e3e6f0;
+    }
+
+        .page-header h1 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+    .breadcrumb {
+        background: transparent;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .breadcrumb-item a {
+        color: #6c757d;
+        text-decoration: none;
+    }
+
+    .breadcrumb-item.active {
+        color: #2c3e50;
+        font-weight: 500;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+        content: ">";
+        color: #6c757d;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        background: white;
+        margin-bottom: 30px;
+    }
+
+    .card-header {
+        background: #2c3e50;
+        color: white;
+        border-radius: 10px 10px 0 0;
+        padding: 15px 25px;
+        border: none;
+    }
+
+        .card-header h4 {
+            margin: 0;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+    .card-body {
+        padding: 25px;
+    }
+
+    .table {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+        .table th {
+            background-color: #f8f9fa;
+            color: #2c3e50;
+            font-weight: 600;
+            border-top: none;
+            padding: 15px;
+            border-bottom: 2px solid #e3e6f0;
+        }
+
+        .table td {
+            padding: 15px;
+            vertical-align: middle;
+            border-top: 1px solid #e3e6f0;
+        }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    .table-striped tbody tr:hover {
+        background-color: rgba(44, 62, 80, 0.05);
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: rgba(44, 62, 80, 0.07);
+        cursor: pointer;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        background: #2c3e50;
+        color: white;
+        border: 1px solid #2c3e50;
+    }
+
+        .btn-primary:hover {
+            background: #1a252f;
+            border-color: #1a252f;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+    .btn-outline-info {
+        background: transparent;
+        color: #17a2b8;
+        border: 1px solid #17a2b8;
+    }
+
+        .btn-outline-info:hover {
+            background: #17a2b8;
+            color: white;
+        }
+
+    .btn-outline-primary {
+        background: transparent;
+        color: #2c3e50;
+        border: 1px solid #2c3e50;
+    }
+
+        .btn-outline-primary:hover {
+            background: #2c3e50;
+            color: white;
+        }
+
+    .btn-outline-danger {
+        background: transparent;
+        color: #e74c3c;
+        border: 1px solid #e74c3c;
+    }
+
+        .btn-outline-danger:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+    .btn-sm {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    .btn-group {
+        gap: 5px;
+    }
+
+    .badge {
+        padding: 6px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .badge-light {
+        background: #f8f9fa;
+        color: #2c3e50;
+        border: 1px solid #dee2e6;
+    }
+
+    .badge-success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .text-success {
+        color: #28a745 !important;
+    }
+
+    .text-primary {
+        color: #2c3e50 !important;
+    }
+
+    .text-info {
+        color: #17a2b8 !important;
+    }
+
+    .text-muted {
+        color: #6c757d !important;
+    }
+
+    .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .empty-state-icon {
+        font-size: 60px;
+        color: #bdc3c7;
+        margin-bottom: 20px;
+    }
+
+    .empty-state h3 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+
+    .empty-state .lead {
+        color: #7b8a8b;
+        max-width: 400px;
+        margin: 0 auto 20px;
+    }
+
+    .summary-card {
+        border: 1px solid #e3e6f0;
+        background: #f8f9fa;
+    }
+
+    .me-2 {
+        margin-right: 8px;
+    }
+
+    .mt-2 {
+        margin-top: 8px;
+    }
+
+    .mt-3 {
+        margin-top: 16px;
+    }
+
+    .mt-4 {
+        margin-top: 24px;
+    }
+
+    .p-3 {
+        padding: 16px;
+    }
+
+    .rounded {
+        border-radius: 8px;
+    }
+
+    @@media (max-width: 768px) {
+        .main-content
+
+    {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .table th, .table td {
+        white-space: nowrap;
+    }
+
+    .d-flex {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

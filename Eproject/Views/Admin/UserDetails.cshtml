@@ -1,0 +1,238 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model User
+
+<div class="main-content">
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>User Details</h4>
+                            <div class="card-header-action">
+                                <a asp-controller="Admin" asp-action="Youser"  class="btn btn-icon icon-left btn-secondary">
+                                    <i class="fas fa-arrow-left"></i> Back to Users
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-5">
+                                    <div class="user-profile-card text-center">
+                                        <div class="profile-avatar mb-4">
+                                            <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 48px; margin: 0 auto;">
+                                                @Model.FullName.Substring(0, 1).ToUpper()
+                                            </div>
+                                        </div>
+                                        <h3 style="font-weight: 700; color: #222;">@Model.FullName</h3>
+                                        <div class="user-role-badge mt-2">
+                                            @if (Model.Role == "Admin")
+                                            {
+                                                <span class="badge badge-danger" style="font-size: 14px; padding: 8px 20px;">@Model.Role</span>
+                                            }
+                                            else if (Model.Role == "Customer")
+                                            {
+                                                <span class="badge badge-primary" style="font-size: 14px; padding: 8px 20px;">@Model.Role</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge badge-secondary" style="font-size: 14px; padding: 8px 20px;">@Model.Role</span>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 col-md-7">
+                                    <div class="user-details-section">
+                                        <div class="section-title mb-4">
+                                            <h5 style="font-weight: 700; color: #222;">Personal Information</h5>
+                                            <div style="width: 50px; height: 3px; background: #007bff; margin-top: 8px;"></div>
+                                        </div>
+
+                                        <div class="detail-row mb-4">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="detail-item">
+                                                        <div class="detail-label" style="color: #6c757d; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 5px;">Full Name</div>
+                                                        <div class="detail-value" style="font-size: 16px; font-weight: 600; color: #222;">@Model.FullName</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="detail-item">
+                                                        <div class="detail-label" style="color: #6c757d; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 5px;">Email Address</div>
+                                                        <div class="detail-value" style="font-size: 16px; font-weight: 600; color: #222;">@Model.Email</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="detail-row mb-4">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="detail-item">
+                                                        <div class="detail-label" style="color: #6c757d; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 5px;">Phone Number</div>
+                                                        <div class="detail-value" style="font-size: 16px; font-weight: 600; color: #222;">@Model.PhoneNumber</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="detail-item">
+                                                        <div class="detail-label" style="color: #6c757d; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 5px;">Account Role</div>
+                                                        <div class="detail-value">
+                                                            @if (Model.Role == "Admin")
+                                                            {
+                                                                <span class="badge badge-danger" style="font-size: 12px; padding: 6px 15px;">@Model.Role</span>
+                                                            }
+                                                            else if (Model.Role == "Customer")
+                                                            {
+                                                                <span class="badge badge-primary" style="font-size: 12px; padding: 6px 15px;">@Model.Role</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="badge badge-secondary" style="font-size: 12px; padding: 6px 15px;">@Model.Role</span>
+                                                            }
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="detail-row">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="detail-item">
+                                                        <div class="detail-label" style="color: #6c757d; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 5px;">Registration Date</div>
+                                                        <div class="detail-value" style="font-size: 16px; font-weight: 600; color: #222;">@Model.CreatedAt.ToString("dd MMMM yyyy")</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="detail-item">
+                                                        <div class="detail-label" style="color: #6c757d; font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 5px;">Account Status</div>
+                                                        <div class="detail-value">
+                                                            <span class="badge badge-success" style="font-size: 12px; padding: 6px 15px;">Active</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a asp-controller="Admin" asp-action="Youser"  class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </a>
+                            @* <a href="#" class="btn btn-danger">
+                                <i class="fas fa-trash"></i> Delete User
+                            </a>
+                            <a href="#" class="btn btn-primary">
+                                <i class="fas fa-edit"></i> Edit Profile
+                            </a> *@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    .card {
+        border: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,.08);
+        border-radius: 12px;
+    }
+
+    .card-header {
+        background: white;
+        border-bottom: 1px solid #e3e6f0;
+        padding: 20px 30px;
+    }
+
+        .card-header h4 {
+            color: #222;
+            font-weight: 800;
+            margin: 0;
+            display: inline-block;
+        }
+
+    .card-header-action {
+        float: right;
+    }
+
+    .user-profile-card {
+        padding: 30px;
+        background: #f8f9fa;
+        border-radius: 12px;
+        height: 100%;
+    }
+
+    .user-details-section {
+        padding: 20px;
+    }
+
+    .detail-item {
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        border: 1px solid #e3e6f0;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+    }
+
+        .detail-item:hover {
+            border-color: #007bff;
+            box-shadow: 0 5px 15px rgba(0,123,255,.1);
+        }
+
+    .badge-primary {
+        background: #007bff;
+        color: white;
+    }
+
+    .badge-danger {
+        background: #dc3545;
+        color: white;
+    }
+
+    .badge-success {
+        background: #28a745;
+        color: white;
+    }
+
+    .badge-secondary {
+        background: #6c757d;
+        color: white;
+    }
+
+    .card-footer {
+        background: white;
+        border-top: 1px solid #e3e6f0;
+        padding: 20px 30px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-weight: 600;
+        border-radius: 8px;
+    }
+
+    .btn-secondary {
+        background: #6c757d;
+        border-color: #6c757d;
+        color: white;
+    }
+
+    .btn-primary {
+        background: #007bff;
+        border-color: #007bff;
+        color: white;
+    }
+
+    .btn-danger {
+        background: #dc3545;
+        border-color: #dc3545;
+        color: white;
+    }
+</style>

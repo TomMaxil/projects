@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    @model Product
+}
+
+
+
+
+<div class="main-content">
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">PRODUCT DETAILS</h4>
+                        </div>
+                        <h3 class="text-black-50" style="margin-left: 30px; margin-top: 10px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">@Model.ProductName</h3>
+                        <ul style="font-style: oblique;" class="text-capitalize">
+                            <li>PRODUCT PRICE : @Model.unitCost</li>
+                            <li>PRODUCT STOCK : @Model.quantity</li>
+                            <li>PRODUCT DISCOUNT : @Model.discount</li>
+                            <li>PRODUCT CATEGORY : @Model.Category.CategoryName</li>
+                            <li>PRODUCT BRAND : @Model.Brand.BrandName</li>
+                            <li>PRODUCT DESCRIPTION : @Model.description</li>
+                        </ul>
+                        <br />
+                        <br />
+                        <img src="~/images/@Model.image" height="auto" width="300" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

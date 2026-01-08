@@ -1,0 +1,939 @@
+﻿@{
+    Layout = "_Layout";
+}
+@model Product
+
+<style>
+    .supermarket-container {
+        max-width: 1200px;
+        margin: 30px auto;
+        padding: 0 15px;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    }
+
+    .product-header {
+        padding: 15px 20px;
+        background: linear-gradient(135deg, #ff3c2f 0%, #ff6b6b 100%);
+        color: white;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 15px rgba(255, 60, 47, 0.2);
+    }
+
+        .product-header h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+        margin-bottom: 30px;
+    }
+
+    @@media (max-width: 992px) {
+        .product-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+    .product-visual-section {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f0f0f0;
+        position: relative;
+    }
+
+    .product-image-container {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f5 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    @@media (max-width: 768px) {
+        .product-image-container {
+            height: 250px;
+        }
+    }
+
+    .product-main-image {
+        width: auto;
+        height: auto;
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
+        padding: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .product-image-container:hover .product-main-image {
+        transform: scale(1.05);
+    }
+
+    .product-image-badges {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        z-index: 2;
+    }
+
+    .image-badge {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .badge-supermart {
+        background: linear-gradient(90deg, #ff3c2f, #ff6b6b);
+        color: white;
+    }
+
+    .badge-fresh {
+        background: linear-gradient(90deg, #ffd700, #ff9800);
+        color: #333;
+    }
+
+    .badge-organic {
+        background: linear-gradient(90deg, #0a8f45, #4CAF50);
+        color: white;
+    }
+
+    .product-details-card {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f0f0f0;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .product-details-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #ff3c2f, #ff6b6b, #ff9800);
+        }
+
+    .product-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 15px;
+        line-height: 1.3;
+    }
+
+    .product-meta-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    @@media (max-width: 576px) {
+        .product-meta-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        background: #f9f9f9;
+        border-radius: 8px;
+        font-size: 13px;
+    }
+
+        .meta-item i {
+            color: #ff3c2f;
+            width: 16px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .meta-item strong {
+            color: #333;
+            font-weight: 600;
+        }
+
+    .price-display {
+        background: linear-gradient(135deg, #f9f9f9 0%, #f0f0f0 100%);
+        border-radius: 10px;
+        padding: 15px;
+        margin: 20px 0;
+        border: 1px solid #e8e8e8;
+    }
+
+    .current-price {
+        font-size: 28px;
+        font-weight: 800;
+        color: #0a8f45;
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+        margin-bottom: 8px;
+    }
+
+    .price-currency {
+        font-size: 18px;
+        font-weight: 700;
+        color: #0a8f45;
+    }
+
+    .original-price {
+        font-size: 18px;
+        color: #ad0000;
+        text-decoration: line-through;
+        font-weight: 600;
+        margin-right: 10px;
+    }
+
+    .discount-tag {
+        background: linear-gradient(90deg, #ff5722, #ff7043);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 13px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .stock-indicator {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 15px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        margin: 15px 0;
+        border: 1px solid #e8e8e8;
+    }
+
+        .stock-indicator.in-stock {
+            background: rgba(10, 143, 69, 0.08);
+            border-color: rgba(10, 143, 69, 0.2);
+        }
+
+        .stock-indicator.out-of-stock {
+            background: rgba(255, 60, 47, 0.08);
+            border-color: rgba(255, 60, 47, 0.2);
+        }
+
+    .stock-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        flex-shrink: 0;
+    }
+
+    .stock-indicator.in-stock .stock-icon {
+        background: #0a8f45;
+        color: white;
+    }
+
+    .stock-indicator.out-of-stock .stock-icon {
+        background: #ff3c2f;
+        color: white;
+    }
+
+    .stock-text {
+        font-size: 15px;
+        font-weight: 600;
+        color: #222;
+    }
+
+    .product-description-card {
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 15px 0;
+        border-left: 4px solid #ff3c2f;
+    }
+
+    .description-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .description-title i {
+            color: #ff3c2f;
+        }
+
+    .description-content {
+        font-size: 14px;
+        line-height: 1.6;
+        color: #444;
+        margin: 0;
+    }
+
+    .action-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin: 25px 0 20px;
+    }
+
+    @@media (max-width: 576px) {
+        .action-buttons {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .btn-cart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(90deg, #ff3c2f 0%, #ff6b6b 100%);
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-cart:hover:not(.btn-disabled) {
+            background: linear-gradient(90deg, #e62e1f 0%, #ff5252 100%);
+            transform: translateY(-2px);
+        }
+
+    .btn-buy {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(90deg, #ff9800 0%, #ffb74d 100%);
+        color: white;
+        padding: 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-buy:hover:not(.btn-disabled) {
+            background: linear-gradient(90deg, #e68900 0%, #ffa726 100%);
+            transform: translateY(-2px);
+        }
+
+    .btn-disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        pointer-events: none;
+        filter: grayscale(1);
+    }
+
+    .trust-badges {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #f0f0f0;
+    }
+
+    .trust-badge {
+        text-align: center;
+        padding: 12px;
+        background: #f9f9f9;
+        border-radius: 8px;
+        border: 1px solid #e8e8e8;
+        font-size: 12px;
+    }
+
+        .trust-badge i {
+            font-size: 20px;
+            color: #0a8f45;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .trust-badge p {
+            margin: 0;
+            line-height: 1.4;
+        }
+
+    .reviews-section {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f0f0f0;
+        margin-top: 30px;
+    }
+
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #222;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .section-title i {
+            color: #ff3c2f;
+        }
+
+    .average-rating-badge {
+        background: linear-gradient(135deg, #111 0%, #222 100%);
+        border-radius: 10px;
+        padding: 12px 15px;
+        color: white;
+        text-align: center;
+        min-width: 100px;
+    }
+
+    .rating-value {
+        font-size: 24px;
+        font-weight: 800;
+        color: white;
+        margin-bottom: 4px;
+    }
+
+    .rating-stars {
+        font-size: 14px;
+        color: #FFD700;
+        letter-spacing: 2px;
+        margin-bottom: 4px;
+    }
+
+    .rating-label {
+        font-size: 11px;
+        color: #ddd;
+        font-weight: 500;
+    }
+
+    .reviews-list {
+        margin-top: 20px;
+    }
+
+    .review-card {
+        background: white;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 12px;
+        border: 1px solid #f0f0f0;
+    }
+
+    .review-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .reviewer-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .reviewer-avatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff3c2f, #ff6b6b);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .reviewer-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: #222;
+    }
+
+    .review-date {
+        font-size: 12px;
+        color: #777;
+    }
+
+    .review-rating {
+        font-size: 14px;
+        color: #FFD700;
+        letter-spacing: 2px;
+        margin: 10px 0;
+    }
+
+    .review-comment {
+        font-size: 13px;
+        color: #444;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    .no-reviews-message {
+        text-align: center;
+        padding: 30px 20px;
+        color: #666;
+        font-size: 14px;
+        background: #f9f9f9;
+        border-radius: 10px;
+        border: 1px dashed #ddd;
+    }
+
+        .no-reviews-message i {
+            font-size: 32px;
+            color: #ddd;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .no-reviews-message h3 {
+            font-size: 16px;
+            color: #222;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .no-reviews-message p {
+            font-size: 13px;
+            color: #666;
+            max-width: 300px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+    .review-form-section {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid #f0f0f0;
+        margin-top: 30px;
+    }
+
+    .review-form-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+        .review-form-title i {
+            color: #0a8f45;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 8px;
+        display: block;
+        font-size: 13px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #e8e8e8;
+        border-radius: 6px;
+        font-size: 13px;
+        background: #fcfcfc;
+    }
+
+        .form-control:focus {
+            border-color: #ff3c2f;
+            outline: none;
+            background: white;
+        }
+
+    .btn-submit {
+        background: linear-gradient(90deg, #ff3c2f 0%, #ff6b6b 100%);
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-submit:hover {
+            background: linear-gradient(90deg, #e62e1f 0%, #ff5252 100%);
+            transform: translateY(-2px);
+        }
+
+    .purchase-note {
+        background: #fff5f5;
+        border-radius: 10px;
+        padding: 15px;
+        margin-top: 20px;
+        text-align: center;
+        color: #666;
+        font-size: 13px;
+        border: 1px solid #ffebee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+        .purchase-note i {
+            color: #ff3c2f;
+        }
+
+    @@media (max-width: 768px) {
+        .supermarket-container {
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        .product-header {
+            padding: 12px 15px;
+            margin-bottom: 15px;
+        }
+
+            .product-header h1 {
+                font-size: 20px;
+            }
+
+        .product-grid {
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .product-image-container {
+            height: 220px;
+        }
+
+        .product-details-card {
+            padding: 20px 15px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .current-price {
+            font-size: 24px;
+        }
+
+        .reviews-section,
+        .review-form-section {
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .section-title {
+            font-size: 16px;
+        }
+    }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="supermarket-container">
+
+    <div class="product-header">
+        <h1>@Model.ProductName</h1>
+    </div>
+
+    <div class="product-grid">
+        <div class="product-visual-section">
+            <div class="product-image-badges">
+                <span class="image-badge badge-supermart">
+                    <i class="fas fa-store"></i> SUPERMART
+                </span>
+                @if (Model.quantity > 0 && Model.quantity <= 10)
+                {
+                    <span class="image-badge badge-fresh">
+                        <i class="fas fa-bolt"></i> LIMITED
+                    </span>
+                }
+                @if (Model.discount > Model.unitCost)
+                {
+                    var discountPercent = ((Model.discount - Model.unitCost) * 100) / Model.discount;
+                    if (discountPercent >= 30)
+                    {
+                        <span class="image-badge badge-organic">
+                            <i class="fas fa-fire"></i> HOT DEAL
+                        </span>
+                    }
+                }
+            </div>
+
+            <div class="product-image-container">
+                <img src="~/images/@Model.image" class="product-main-image" alt="@Model.ProductName"
+                     onerror="this.src='https://via.placeholder.com/400x300/ffffff/666666?text=Product+Image'" />
+            </div>
+        </div>
+
+        <div class="product-details-card">
+            <h2 class="product-title">@Model.ProductName</h2>
+
+            <div class="product-meta-grid">
+                <div class="meta-item">
+                    <i class="fas fa-tag"></i>
+                    <div><strong>Category</strong><br>@Model.Category?.CategoryName</div>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-copyright"></i>
+                    <div><strong>Brand</strong><br>@Model.Brand?.BrandName</div>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-hashtag"></i>
+                    <div><strong>ID</strong><br>@Model.id</div>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-box"></i>
+                    <div><strong>Units</strong><br>@Model.quantity</div>
+                </div>
+            </div>
+
+            <div class="price-display">
+                <div class="current-price">
+                    <span class="price-currency">₹</span>@Model.unitCost
+                </div>
+
+                @if (Model.discount > Model.unitCost)
+                {
+                    var discountPercent = ((Model.discount - Model.unitCost) * 100) / Model.discount;
+                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 8px;">
+                        <span class="original-price">₹@Model.discount</span>
+                        <span class="discount-tag">
+                            <i class="fas fa-tag"></i> SAVE @Math.Round(discountPercent)%
+                        </span>
+                    </div>
+                }
+            </div>
+
+            <div class="stock-indicator @(Model.quantity > 0 ? "in-stock" : "out-of-stock")">
+                <div class="stock-icon">
+                    <i class="fas @(Model.quantity > 0 ? "fa-check" : "fa-times")"></i>
+                </div>
+                <div class="stock-text">
+                    @if (Model.quantity > 0)
+                    {
+                        <text>In Stock - @Model.quantity units</text>
+                    }
+                    else
+                    {
+                        <text>Out of Stock</text>
+                    }
+                </div>
+            </div>
+
+            <div class="product-description-card">
+                <div class="description-title">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Description</span>
+                </div>
+                <p class="description-content">@Model.description</p>
+            </div>
+
+            <div class="action-buttons">
+                <a asp-controller="Customer" asp-action="AddCart" asp-route-productId="@Model.id"
+                   class="btn-cart @(Model.quantity <= 0 ? "btn-disabled" : "")"
+                   style="@(Model.quantity <= 0 ? "opacity:0.6;cursor:not-allowed;pointer-events:none;" : "")">
+                    <i class="fas fa-cart-plus"></i> Add to Cart
+                </a>
+
+                <a href="#"
+                   class="btn-buy @(Model.quantity <= 0 ? "btn-disabled" : "")"
+                   style="@(Model.quantity <= 0 ? "opacity:0.6;cursor:not-allowed;pointer-events:none;" : "")">
+                    <i class="fas fa-bolt"></i> Buy Now
+                </a>
+            </div>
+
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <i class="fas fa-shipping-fast"></i>
+                    <p>Free Shipping</p>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>Secure Payment</p>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-undo"></i>
+                    <p>Easy Returns</p>
+                </div>
+                <div class="trust-badge">
+                    <i class="fas fa-headset"></i>
+                    <p>24/7 Support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews-section">
+        <div class="section-header">
+            <h2 class="section-title">
+                <i class="fas fa-star"></i> Customer Reviews
+            </h2>
+
+            @if (ViewBag.AvgRating != null)
+            {
+                <div class="average-rating-badge">
+                    <div class="rating-value">@Math.Round((decimal)ViewBag.AvgRating, 1)</div>
+                    <div class="rating-stars">
+                        @for (int i = 1; i <= 5; i++)
+                        {
+                            if (i <= (int)ViewBag.AvgRating)
+                            {
+                                <i class="fas fa-star"></i>
+                            }
+                            else if (i - 0.5 <= ViewBag.AvgRating)
+                            {
+                                <i class="fas fa-star-half-alt"></i>
+                            }
+                            else
+                            {
+                                <i class="far fa-star"></i>
+                            }
+                        }
+                    </div>
+                    <div class="rating-label">@Model.Reviews?.Count Reviews</div>
+                </div>
+            }
+        </div>
+
+        <div class="reviews-list">
+            @if (Model.Reviews != null && Model.Reviews.Count > 0)
+            {
+                foreach (var r in Model.Reviews)
+                {
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <div class="reviewer-avatar">
+                                    @r.Customer.FirstName[0]
+                                </div>
+                                <div>
+                                    <div class="reviewer-name">@r.Customer.FirstName @r.Customer.LastName</div>
+                                    <div class="review-date">@r.CreatedAt.ToString("MMM dd, yyyy")</div>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                @for (int i = 1; i <= 5; i++)
+                                {
+                                    <i class="fas fa-star" style="color: @(i <= r.Rating ? "#FFD700" : "#e0e0e0")"></i>
+                                }
+                            </div>
+                        </div>
+                        <p class="review-comment">@r.Comment</p>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="no-reviews-message">
+                    <i class="far fa-star"></i>
+                    <h3>No Reviews Yet</h3>
+                    <p>Be the first to review this product!</p>
+                </div>
+            }
+        </div>
+    </div>
+
+    @if (ViewBag.CanReview == true)
+    {
+        <div class="review-form-section">
+            <h3 class="review-form-title">
+                <i class="fas fa-edit"></i> Write a Review
+            </h3>
+
+            <form method="post" asp-controller="Review" asp-action="Index">
+                <input type="hidden" name="ProductId" value="@Model.id" />
+
+                <div class="form-group">
+                    <label class="form-label">Your Rating</label>
+                    <select name="Rating" class="form-control" required>
+                        <option value="">Select Rating</option>
+                        <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                        <option value="4">⭐⭐⭐⭐ Very Good</option>
+                        <option value="3">⭐⭐⭐ Good</option>
+                        <option value="2">⭐⭐ Fair</option>
+                        <option value="1">⭐ Poor</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Your Review</label>
+                    <textarea name="Comment" class="form-control" rows="3"
+                          placeholder="Share your experience..."
+                          maxlength="500"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                    <i class="fas fa-paper-plane"></i> Submit Review
+                </button>
+            </form>
+        </div>
+    }
+    else
+    {
+        <div class="purchase-note">
+            <i class="fas fa-info-circle"></i>
+            <p>Purchase this product to write a review</p>
+        </div>
+    }
+</div>

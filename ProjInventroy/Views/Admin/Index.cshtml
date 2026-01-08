@@ -1,0 +1,515 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="dashboard">
+    <div class="dashboard-header"> <div class="header-content">
+        <h1 class="dashboard-title">Dashboard Overview</h1> 
+        <div class="header-subtitle">Welcome back! Here's what's happening with your store today.</div></div> 
+            <div class="header-actions"> <div class="current-date"> 
+              <span class="date-day">@DateTime.Now.ToString("dddd")</span> 
+                <span class="date-full">@DateTime.Now.ToString("MMMM dd, yyyy")</span> </div> </div> </div>
+
+        <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Low Stock</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.LowStockproducts</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-exclamation-triangle fa-2x text-danger"></i>
+                            </div>
+                        </div>
+                        <a asp-controller="Admin" asp-action="LowStock" class="stretched-link text-decoration-none">
+                            <div class="text-xs text-muted mt-2">View Details →</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Products</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.TotalProducts</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-boxes fa-2x text-success"></i>
+                            </div>
+                        </div>
+                        <a asp-controller="Product" asp-action="Index" class="stretched-link text-decoration-none">
+                            <div class="text-xs text-muted mt-2">View Products →</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-info shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Categories</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.TotalCategory</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-layer-group fa-2x text-info"></i>
+                            </div>
+                        </div>
+                        <a asp-controller="Category" asp-action="Index" class="stretched-link text-decoration-none">
+                            <div class="text-xs text-muted mt-2">View Categories →</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Sales</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.TotalSales</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-chart-line fa-2x text-primary"></i>
+                            </div>
+                        </div>
+                        <a asp-controller="Sale" asp-action="Index" class="stretched-link text-decoration-none">
+                            <div class="text-xs text-muted mt-2">View Sales →</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Purchases</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">@ViewBag.TotalPurchases</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-shopping-cart fa-2x text-warning"></i>
+                            </div>
+                        </div>
+                        <a asp-controller="Purchase" asp-action="Index" class="stretched-link text-decoration-none">
+                            <div class="text-xs text-muted mt-2">View Purchases →</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-9 col-md-6 mb-4">
+                <div class="card shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-dark text-uppercase mb-1">Quick Actions</div>
+                                <div class="row mt-3">
+                                    <div class="col-md-4 mb-3">
+                                        <a asp-controller="Product" asp-action="Add" class="btn btn-primary btn-block">
+                                            <i class="fas fa-plus"></i> Add Product
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <a asp-controller="Category" asp-action="Create" class="btn btn-success btn-block">
+                                            <i class="fas fa-plus"></i> Add Category
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <a asp-controller="Sale" asp-action="Index" class="btn btn-info btn-block">
+                                            <i class="fas fa-file-invoice-dollar"></i> New Sale
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card shadow">
+                    <div class="card-header bg-white">
+                        <h6 class="m-0 font-weight-bold text-dark">Recent Activities</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon bg-primary">
+                                    <i class="fas fa-box text-white"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-text">New products added to inventory</div>
+                                    <div class="activity-time">Today</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-success">
+                                    <i class="fas fa-chart-line text-white"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-text">Sales report generated for this week</div>
+                                    <div class="activity-time">Yesterday</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon bg-warning">
+                                    <i class="fas fa-exclamation-triangle text-white"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <div class="activity-text">Low stock alert for 5 products</div>
+                                    <div class="activity-time">2 days ago</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<style>
+    .dashboard {
+        margin-left: 250px;
+        padding: 40px;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+
+    .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 48px;
+        padding-bottom: 24px;
+        border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    }
+
+    .header-content {
+        flex: 1;
+    }
+
+    .dashboard-title {
+        font-size: 34px;
+        font-weight: 700;
+        color: #1e293b;
+        margin: 0 0 12px 0;
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+    }
+
+    .header-subtitle {
+        font-size: 16px;
+        color: #64748b;
+        font-weight: 400;
+        line-height: 1.5;
+    }
+
+    .header-actions {
+        display: flex;
+        align-items: center;
+    }
+
+    .current-date {
+        background: white;
+        padding: 14px 22px;
+        border-radius: 14px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        border: 1px solid rgba(226, 232, 240, 0.9);
+        transition: all 0.3s ease;
+    }
+
+        .current-date:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-color: #cbd5e1;
+        }
+
+    .date-day {
+        display: block;
+        font-size: 15px;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 4px;
+    }
+
+    .date-full {
+        display: block;
+        font-size: 14px;
+        color: #64748b;
+        font-weight: 500;
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+    }
+
+    .shadow {
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58,59,69,0.15) !important;
+    }
+
+    .border-left-danger {
+        border-left: 4px solid #e74c3c !important;
+    }
+
+    .border-left-success {
+        border-left: 4px solid #2ecc71 !important;
+    }
+
+    .border-left-info {
+        border-left: 4px solid #3498db !important;
+    }
+
+    .border-left-primary {
+        border-left: 4px solid #2c3e50 !important;
+    }
+
+    .border-left-warning {
+        border-left: 4px solid #f39c12 !important;
+    }
+
+    .card-body {
+        padding: 1.25rem;
+    }
+
+    .text-danger {
+        color: #e74c3c !important;
+    }
+
+    .text-success {
+        color: #2ecc71 !important;
+    }
+
+    .text-info {
+        color: #3498db !important;
+    }
+
+    .text-primary {
+        color: #2c3e50 !important;
+    }
+
+    .text-warning {
+        color: #f39c12 !important;
+    }
+
+    .text-gray-800 {
+        color: #2c3e50 !important;
+    }
+
+    .font-weight-bold {
+        font-weight: 600 !important;
+    }
+
+    .text-uppercase {
+        text-transform: uppercase !important;
+    }
+
+    .h5 {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .text-xs {
+        font-size: .7rem;
+    }
+
+    .stretched-link::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        pointer-events: auto;
+        content: "";
+        background-color: rgba(0,0,0,0);
+    }
+
+    .text-decoration-none {
+        text-decoration: none !important;
+    }
+
+    .mb-4 {
+        margin-bottom: 1.5rem !important;
+    }
+
+    .mb-3 {
+        margin-bottom: 1rem !important;
+    }
+
+    .mt-3 {
+        margin-top: 1rem !important;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .btn-block {
+        width: 100%;
+    }
+
+    .btn-primary {
+        background: #2c3e50;
+        color: white;
+        border: 1px solid #2c3e50;
+    }
+
+        .btn-primary:hover {
+            background: #1a252f;
+            border-color: #1a252f;
+        }
+
+    .btn-success {
+        background: #2ecc71;
+        color: white;
+        border: 1px solid #2ecc71;
+    }
+
+        .btn-success:hover {
+            background: #27ae60;
+            border-color: #27ae60;
+        }
+
+    .btn-info {
+        background: #3498db;
+        color: white;
+        border: 1px solid #3498db;
+    }
+
+        .btn-info:hover {
+            background: #2980b9;
+            border-color: #2980b9;
+        }
+
+    .activity-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .activity-item {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px;
+        border-radius: 5px;
+        background: #fff;
+        transition: all 0.3s;
+    }
+
+        .activity-item:hover {
+            background: #f8f9fa;
+        }
+
+    .activity-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+
+    .activity-content {
+        flex: 1;
+    }
+
+    .activity-text {
+        color: #2c3e50;
+        font-weight: 500;
+    }
+
+    .activity-time {
+        color: #7b8a8b;
+        font-size: 12px;
+    }
+
+    .bg-primary {
+        background: #2c3e50 !important;
+    }
+
+    .bg-success {
+        background: #2ecc71 !important;
+    }
+
+    .bg-warning {
+        background: #f39c12 !important;
+    }
+
+    .bg-white {
+        background: #fff !important;
+    }
+
+    .text-white {
+        color: #fff !important;
+    }
+    @@media (max-width:768px) {
+        .main-content
+
+    {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .col-xl-3, .col-xl-9, .col-md-6 {
+        width: 100%;
+    }
+
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
+
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/inventoryHub")
+        .withAutomaticReconnect()
+        .build();
+
+    connection.on("LowStockAlert", function (productName, stockQty) {
+        toastr.warning(
+            productName + " stock low (" + stockQty + ")",
+            "Low Stock Alert",
+            {
+                closeButton: true,
+                progressBar: true,
+                timeOut: 5000,
+                positionClass: "toast-top-right"
+            }
+        );
+    });
+
+    connection.start()
+        .then(() => console.log("✅ SignalR Connected"))
+        .catch(err => console.error(err));
+</script>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

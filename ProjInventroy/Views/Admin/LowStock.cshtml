@@ -1,0 +1,365 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model List<Product>
+
+<div class="main-content">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h1>Low Stock Alert</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a asp-controller="Admin" asp-action="Index">Dashboard</a></li>
+                    <li class="breadcrumb-item active">Low Stock</li>
+                </ol>
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-warning text-dark">
+                        <h4 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Products Running Low</h4>
+                        <small class="text-dark opacity-75">Total: @Model.Count product@(Model.Count != 1 ? "s" : "") below minimum stock</small>
+                    </div>
+
+                    <div class="card-body">
+                        @if (Model.Any())
+                        {
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Product Name</th>
+                                            <th>Current Stock</th>
+                                            <th>Minimum Required</th>
+                                            <th>Status</th>
+                                            <th>Shortage</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (int i = 0; i < Model.Count; i++)
+                                        {
+                                            var product = Model[i];
+                                            var shortage = product.MinStockQty - product.StockQty;
+                                            <tr>
+                                                <td>@(i + 1)</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="product-icon me-3">
+                                                            <i class="fas fa-box"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="mb-0">@product.Name</h6>
+                                                            <small class="text-muted">Code: @product.ProductId</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="stock-badge @(product.StockQty == 0 ? "bg-danger" : "bg-warning")">
+                                                        @product.StockQty
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span class="min-stock-badge bg-secondary">
+                                                        @product.MinStockQty
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    @if (product.StockQty == 0)
+                                                    {
+                                                        <span class="badge bg-danger">Out of Stock</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="badge bg-warning">Low Stock</span>
+                                                    }
+                                                </td>
+                                                <td>
+                                                    <span class="shortage-badge bg-danger">
+                                                        @shortage units needed
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="text-center py-5">
+                                <div class="empty-state-icon text-success mb-3">
+                                    <i class="fas fa-check-circle fa-3x"></i>
+                                </div>
+                                <h4 class="text-success">All Products Are Stocked!</h4>
+                                <p class="text-muted">All products meet or exceed their minimum stock requirements.</p>
+                                <a asp-controller="Admin" asp-action="Index" class="btn btn-primary mt-3">
+                                    <i class="fas fa-tachometer-alt"></i> Return to Dashboard
+                                </a>
+                            </div>
+                        }
+                    </div>
+
+                    @if (Model.Any())
+                    {
+                        <div class="card-footer bg-light">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="alert alert-warning mb-0">
+                                        <i class="fas fa-info-circle"></i>
+                                        <strong>Action Required:</strong> Please reorder these products to avoid stockouts.
+                                    </div>
+                                </div>
+                                <div class="col-md-6 text-md-end">
+                                    <a asp-controller="Purchase" asp-action="Create" class="btn btn-primary">
+                                        <i class="fas fa-cart-plus"></i> Create Purchase Order
+                                    </a>
+                                    <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary">
+                                        <i class="fas fa-list"></i> View All Products
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .main-content {
+        margin-left: 250px;
+        padding: 30px;
+        min-height: 100vh;
+        background: #f5f7fa
+    }
+
+    .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto
+    }
+
+    .page-header {
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #e3e6f0
+    }
+
+        .page-header h1 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 28px
+        }
+
+    .breadcrumb {
+        background: transparent;
+        padding: 0;
+        margin-bottom: 0
+    }
+
+    .breadcrumb-item a {
+        color: #6c757d;
+        text-decoration: none
+    }
+
+    .breadcrumb-item.active {
+        color: #2c3e50;
+        font-weight: 500
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+        content: ">";
+        color: #6c757d
+    }
+
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58,59,69,0.15);
+        background: white;
+        margin-bottom: 30px
+    }
+
+    .card-header.bg-warning {
+        background: #f39c12 !important;
+        border-radius: 10px 10px 0 0 !important;
+        padding: 15px 25px;
+        border: none
+    }
+
+    .card-header h4 {
+        margin: 0;
+        font-weight: 500;
+        font-size: 18px
+    }
+
+    .card-body {
+        padding: 25px
+    }
+
+    .card-footer {
+        background: #f8f9fa;
+        border-top: 1px solid #e3e6f0;
+        padding: 15px 25px;
+        border-radius: 0 0 10px 10px
+    }
+
+    .table {
+        border: 1px solid #dee2e6
+    }
+
+        .table thead.thead-dark th {
+            background: #2c3e50;
+            color: white;
+            border-bottom: 2px solid #1a252f;
+            padding: 12px 15px;
+            font-weight: 600
+        }
+
+        .table tbody td {
+            padding: 12px 15px;
+            vertical-align: middle;
+            border-bottom: 1px solid #e3e6f0
+        }
+
+        .table tbody tr:hover {
+            background-color: rgba(44,62,80,0.03)
+        }
+
+    .stock-badge, .min-stock-badge, .shortage-badge {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 13px;
+        display: inline-block
+    }
+
+        .stock-badge.bg-danger {
+            background: #e74c3c !important;
+            color: white
+        }
+
+        .stock-badge.bg-warning {
+            background: #f39c12 !important;
+            color: white
+        }
+
+        .min-stock-badge.bg-secondary {
+            background: #95a5a6 !important;
+            color: white
+        }
+
+        .shortage-badge.bg-danger {
+            background: #e74c3c !important;
+            color: white
+        }
+
+    .badge {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 600
+    }
+
+    .bg-danger {
+        background: #e74c3c !important
+    }
+
+    .bg-warning {
+        background: #f39c12 !important
+    }
+
+    .bg-success {
+        background: #28a745 !important
+    }
+
+    .bg-secondary {
+        background: #95a5a6 !important
+    }
+
+    .product-icon {
+        width: 36px;
+        height: 36px;
+        background: #ecf0f1;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #2c3e50
+    }
+
+    .empty-state-icon {
+        color: #28a745
+    }
+
+    .alert-warning {
+        background: #fff3cd;
+        border-color: #ffeaa7;
+        color: #856404
+    }
+
+    .btn {
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s;
+        border: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px
+    }
+
+    .btn-primary {
+        background: #2c3e50;
+        color: white;
+        border: 1px solid #2c3e50
+    }
+
+        .btn-primary:hover {
+            background: #1a252f;
+            border-color: #1a252f
+        }
+
+    .btn-outline-secondary {
+        background: transparent;
+        color: #6c757d;
+        border: 1px solid #d1d3e2
+    }
+
+        .btn-outline-secondary:hover {
+            background: #f8f9fa;
+            color: #2c3e50;
+            border-color: #2c3e50
+        }
+
+    .text-muted {
+        color: #6c757d !important
+    }
+
+    .text-success {
+        color: #28a745 !important
+    }
+
+    @@media (max-width:768px) {
+        .main-content {
+            margin-left: 0;
+            padding: 20px
+        }
+
+        .card-footer .row {
+            flex-direction: column;
+            gap: 15px
+        }
+
+        .card-footer .text-md-end {
+            text-align: left !important;
+            margin-top: 15px
+        }
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

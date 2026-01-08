@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    @model Product
+}
+
+
+
+
+
+<div class="main-content">
+    <section class="section">
+        <div class="section-body">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">EDIT PRODUCT</h4>
+                        </div>
+                        <div class="card-body">
+                            <form asp-controller="Product" asp-action="Edit" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label asp-for="ProductName" class="text-opacity-100">Name</label>
+                                    <input type="text" class="form-control" asp-for="ProductName">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="unitCost" class="text-opacity-100">Unicost</label>
+                                    <input type="number" class="form-control" asp-for="unitCost">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="quantity" class="text-opacity-100">Quantity</label>
+                                    <input type="number" class="form-control" asp-for="quantity">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="discount" class="text-opacity-100">Discount</label>
+                                    <input type="number" class="form-control" asp-for="discount">
+                                </div>
+                                <div class="form-group">
+                                    <label for="CategoryID" class="text-opacity-100">Select Category</label>
+                                    <select asp-for="CategoryId" class="form-control" asp-items="@ViewBag.categori">
+                                        <option>--Select a Category--</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="BrandId" class="text-opacity-100">Select Brand</label>
+                                    <select asp-for="BrandId" class="form-control" asp-items="@ViewBag.brand">
+                                        <option value="">--Select a Brand--</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="image" class="text-opacity-100">Image</label>
+                                    <input type="file" class="form-control" asp-for="image">
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="description" class="text-opacity-100">Description</label>
+                                    <input type="text" class="form-control" asp-for="description">
+                                </div>
+
+                                <button class="btn btn-primary" type="submit">Edit</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

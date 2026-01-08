@@ -1,0 +1,885 @@
+﻿@using Microsoft.EntityFrameworkCore
+
+
+
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online SuperMarket System</title>
+    <link href="https://fonts.googleapis.com/css?family=Cairo:400,600,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i,700i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&amp;display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Website/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="~/Website/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Website/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Website/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Website/css/nice-select.css">
+    <link rel="stylesheet" type="text/css" href="~/Website/css/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Website/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Website/css/main-color.css">
+
+</head>
+<body class="biolife-body">
+
+    <div id="biof-loading">
+        <div class="biof-loading-center">
+            <div class="biof-loading-center-absolute">
+                <div class="dot dot-one"></div>
+                <div class="dot dot-two"></div>
+                <div class="dot dot-three"></div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <header id="header" class="header-area style-01 layout-03">
+        <div class="header-top bg-main hidden-xs">
+            <div class="container">
+                <div class="top-bar left">
+                    <ul class="horizontal-menu">
+                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>Supermarket@Online.com</a></li>
+                    </ul>
+                </div>
+                <div class="top-bar right">
+                    <ul class="social-list">
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                    </ul>
+                    <ul class="horizontal-menu">
+                       
+                        @if(Context.Session.GetString("Userid") != null){
+
+                            <li><a asp-controller="User" asp-action="Index" class="login-link"><i class="fas fa-user"></i>Profile</a></li>
+                            <li><a asp-controller="User" asp-action="Logout" class="login-link"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                        }
+                        else
+                        {
+                            <li><a asp-controller="User" asp-action="Register" class="login-link"><i class="biolife-icon icon-login"></i>Login/Register</a></li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="header-middle biolife-sticky-object ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-2 col-md-6 col-xs-6" style="padding-left: 0;">
+                        <a href="index-2.html" class="biolife-logo" style="float: right; margin-right: 150px;">
+                            <img src="~/Website/images/supermarket-logo.png" alt="supermarket logo" width="155" height="39">
+                        </a>
+                    </div>
+                    <div class="col-lg-6 col-md-7 hidden-sm hidden-xs" style="font-weight: bolder!important; text-align: center!important; font-family: 'Poppins', sans-serif;">
+                        <div class="primary-menu">
+                            <ul class="menu biolife-menu clone-main-menu clone-primary-menu" id="primary-menu" data-menuname="main menu">
+                                @if(Context.Session.GetString("Userid") != null)
+                                {
+                                    <li class="menu-item"><a asp-controller="Customer" asp-action="Dashboard" >Dashboard</a></li>
+                                    <li class="menu-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                                    <li class="menu-item"> <a asp-controller="Home" asp-action="About">About</a></li>
+                                    <li class="menu-item"><a asp-controller="Home" asp-action="AllProducts">Product</a> </li>
+                                    <li class="menu-item"><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                                }
+                                else
+                                {
+                                    <li class="menu-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                                    <li class="menu-item"> <a asp-controller="Home" asp-action="About">About</a></li>
+                                    <li class="menu-item"><a asp-controller="Home" asp-action="AllProducts">Product</a> </li>
+                                    <li class="menu-item"><a asp-controller="Home" asp-action="Contact">Contact</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-md-6 col-xs-6">
+                        <div class="biolife-cart-info">
+                            <div class="mobile-search">
+                                <a href="javascript:void(0)" class="open-searchbox"><i class="biolife-icon icon-search"></i></a>
+                                <div class="mobile-search-content">
+                                    <form action="#" class="form-search" name="mobile-seacrh" method="get">
+                                        <a href="#" class="btn-close"><span class="biolife-icon icon-close-menu"></span></a>
+                                        <input type="text" name="s" class="input-text" value="" placeholder="Search here...">
+                                        <button type="submit" class="btn-submit">go</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="minicart-block">
+                                <div class="minicart-contain">
+                                    <a href="javascript:void(0)" class="link-to">
+                                        <span class="icon-qty-combine">
+                                            <i class="icon-cart-mini biolife-icon"></i>
+                                            <span class="qty">@ViewBag.CartCount</span>
+                                        </span>
+                                        <span class="title">My Cart -</span>
+                                        <span class="sub-total">Rs @ViewBag.CartTotal</span>
+                                    </a>
+
+                                    <div class="cart-content">
+                                        <div class="cart-inner">
+                                            @{
+                                                var db = Context.RequestServices.GetService<eCommerceContext>();
+                                                var userIdStr = Context.Session.GetString("Userid");
+
+                                                if (userIdStr != null)
+                                                {
+                                                    var userId = Guid.Parse(userIdStr);
+                                                    var customer = db.tbl_customer.FirstOrDefault(c => c.UserId == userId);
+
+                                                    if (customer != null)
+                                                    {
+                                                        var cart = db.tbl_cart.FirstOrDefault(c => c.CustomerId == customer.id);
+
+                                                        if (cart != null)
+                                                        {
+                                                            var miniItems = db.tbl_cartitem
+                                                            .Where(ci => ci.CartId == cart.CartId)
+                                                            .Include(ci => ci.Product)
+                                                            .ToList();
+
+                                                            ViewBag.CartCount = miniItems.Sum(i => i.Quantity); 
+                                                            ViewBag.CartTotal = miniItems.Sum(i => i.Quantity * i.Product.unitCost);
+                                                            <ul class="products">
+                                                                @foreach (var item in miniItems)
+                                                                {
+                                                                    <li>
+                                                                        <div class="minicart-item">
+                                                                            <div class="thumb">
+                                                                                <img src="~/images/@item.Product.image" style="width:60px;height:60px" />
+                                                                            </div>
+
+                                                                            <div class="left-info">
+                                                                                <h4 class="product-title">@item.Product.ProductName</h4>
+                                                                                <p class="price">Qty: @ViewBag.CartCount = 0;</p>
+                                                                                <p class="price">Rs @ViewBag.CartTotal = 0;</p>
+                                                                            </div>
+
+                                                                           
+                                                                        </div>
+                                                                    </li>
+                                                                }
+                                                            </ul>
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            <p class="btn-control">
+                                                <a asp-controller="Customer" asp-action="Cart" class="btn view-cart">View Cart</a>
+                                                <a asp-controller="Checkout" asp-action="Index" class="btn">Checkout</a>
+                                            </p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mobile-menu-toggle">
+                                <a class="btn-toggle" data-object="open-mobile-menu" href="javascript:void(0)">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="header-bottom hidden-sm hidden-xs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 order-lg-2 order-md-2" style="padding-right: 0;">
+                        <div class="vertical-menu vertical-category-block" style="margin-top: 5px; margin-right: 80px;">
+                            <div class="block-title">
+
+                                <span class="menu-icon">
+                                    <span class="line-1"></span>
+                                    <span class="line-2"></span>
+                                    <span class="line-3"></span>
+                                </span>
+
+                                <span class="menu-title">All Categories</span>
+
+                                <span class="angle" data-tgleclass="fa fa-caret-down">
+                                    <i class="fa fa-caret-up" aria-hidden="true"></i>
+                                </span>
+                            </div>
+
+                            <div class="wrap-menu">
+
+                               
+                                @await Component.InvokeAsync("CategoryMenu")
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 padding-top-2px">
+                        <div class="header-search-bar layout-01">
+                            <style>
+                                .search-modern-big {
+                                    width: 105%;
+                                    background: #fff;
+                                    border-radius: 63px;
+                                    border: 5px solid red;
+                                    padding: 8px 15px;
+                                    display: flex;
+                                    align-items: center;
+                                    height: 55px; 
+                                    box-shadow: 0px 3px 10px rgba(0,0,0,0.05);
+                                    margin-left: 90px!important;
+                                    
+                                }
+
+                                    .search-modern-big input {
+                                        width: 90%;
+                                        border: none;
+                                        outline: none;
+                                        font-size: 16px; 
+                                        padding-left: 10px;
+                                        
+                                    }
+
+                                    .search-modern-big button {
+                                        width: 60px;
+                                        height: 40px;
+                                        border: none;
+                                        border-radius: 25px;
+                                        
+                                        color: #fff;
+                                        font-size: 18px;
+                                        cursor: pointer;
+                                        transition: .3s;
+                                        margin-right: -11px!important;
+                                    }
+
+                                        .search-modern-big button:hover {
+                                            background: black;
+                                        }
+                            </style>
+                            <form action="/Products/Search" method="get" class="search-modern-big">
+                                <input type="text" name="s" placeholder="Search for oil, milk, biscuits, fruits, tea..." />
+                                <button type="submit">
+                                    <i class="biolife-icon icon-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+
+
+    @RenderBody()
+
+    @{
+        <style>
+            .supermarket-footer {
+                background: #111;
+                color: #fff;
+                padding: 40px 0 20px;
+                border-top: 4px solid #ff3c2f;
+                font-family: 'Segoe UI', system-ui, sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+
+            .footer-brand {
+                margin-bottom: 20px;
+            }
+
+            .footer-logo {
+                font-size: 28px;
+                font-weight: 800;
+                color: white;
+                text-decoration: none;
+                display: block;
+                margin-bottom: 8px;
+            }
+
+                .footer-logo span {
+                    color: #ff3c2f;
+                }
+
+            .footer-tagline {
+                font-size: 13px;
+                color: #aaa;
+                margin-bottom: 15px;
+            }
+
+            .footer-contact {
+                background: rgba(255, 255, 255, 0.05);
+                padding: 15px;
+                border-radius: 8px;
+                margin-top: 15px;
+                border-left: 3px solid #ff3c2f;
+            }
+
+            .footer-title {
+                font-size: 18px;
+                font-weight: 700;
+                color: white;
+                margin-bottom: 20px;
+                position: relative;
+                padding-bottom: 10px;
+            }
+
+                .footer-title::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 40px;
+                    height: 3px;
+                    background: #ff3c2f;
+                }
+
+            .footer-links {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                .footer-links li {
+                    margin-bottom: 12px;
+                }
+
+                .footer-links a {
+                    color: #aaa;
+                    text-decoration: none;
+                    font-size: 14px;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    transition: all 0.3s ease;
+                }
+
+                    .footer-links a:hover {
+                        color: #ff3c2f;
+                        transform: translateX(5px);
+                    }
+
+                .footer-links i {
+                    width: 18px;
+                    text-align: center;
+                    color: #ff3c2f;
+                    font-size: 14px;
+                }
+
+            .newsletter-box {
+                background: rgba(255, 255, 255, 0.05);
+                padding: 20px;
+                border-radius: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .newsletter-title {
+                font-size: 16px;
+                font-weight: 700;
+                color: white;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-desc {
+                color: #aaa;
+                font-size: 13px;
+                margin-bottom: 15px;
+                line-height: 1.5;
+            }
+
+            .newsletter-form {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+
+            .newsletter-input {
+                flex: 1;
+                padding: 12px 15px;
+                border: 2px solid rgba(255, 255, 255, 0.1);
+                background: rgba(255, 255, 255, 0.05);
+                color: white;
+                border-radius: 6px;
+                font-size: 14px;
+                transition: all 0.3s ease;
+            }
+
+                .newsletter-input:focus {
+                    border-color: #ff3c2f;
+                    outline: none;
+                    background: rgba(255, 255, 255, 0.1);
+                }
+
+            .newsletter-btn {
+                background: #ff3c2f;
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 6px;
+                font-weight: 600;
+                font-size: 14px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                white-space: nowrap;
+            }
+
+                .newsletter-btn:hover {
+                    background: #e62e1f;
+                    transform: translateY(-2px);
+                }
+
+            .social-icons {
+                display: flex;
+                gap: 12px;
+                margin-top: 20px;
+            }
+
+            .social-icon {
+                width: 38px;
+                height: 38px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #aaa;
+                text-decoration: none;
+                font-size: 16px;
+                transition: all 0.3s ease;
+            }
+
+                .social-icon:hover {
+                    background: #ff3c2f;
+                    color: white;
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(255, 60, 47, 0.3);
+                }
+
+            .features-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+                margin-top: 20px;
+            }
+
+            .feature-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 12px;
+                background: rgba(255, 255, 255, 0.03);
+                border-radius: 8px;
+                border: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+                .feature-item i {
+                    color: #ff3c2f;
+                    font-size: 18px;
+                    width: 36px;
+                    height: 36px;
+                    background: rgba(255, 60, 47, 0.1);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+            .feature-text {
+                flex: 1;
+            }
+
+                .feature-text strong {
+                    color: white;
+                    font-size: 14px;
+                    display: block;
+                    margin-bottom: 4px;
+                }
+
+                .feature-text span {
+                    color: #aaa;
+                    font-size: 12px;
+                }
+
+            .footer-bottom {
+                margin-top: 40px;
+                padding-top: 20px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+                text-align: center;
+            }
+
+            .copyright {
+                color: #777;
+                font-size: 13px;
+                margin-bottom: 15px;
+            }
+
+                .copyright strong {
+                    color: #ff3c2f;
+                }
+
+            .payment-methods {
+                margin-bottom: 15px;
+            }
+
+            .payment-icons {
+                display: flex;
+                justify-content: center;
+                gap: 15px;
+                font-size: 24px;
+                color: #666;
+            }
+
+            .footer-links-bottom {
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+                margin-top: 15px;
+            }
+
+                .footer-links-bottom a {
+                    color: #aaa;
+                    text-decoration: none;
+                    font-size: 13px;
+                    transition: color 0.3s ease;
+                }
+
+                    .footer-links-bottom a:hover {
+                        color: #ff3c2f;
+                    }
+
+            /* Contact Info Styling */
+            .contact-info {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .contact-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                margin-bottom: 15px;
+            }
+
+                .contact-item i {
+                    color: #ff3c2f;
+                    font-size: 16px;
+                    margin-top: 3px;
+                }
+
+            .contact-text {
+                flex: 1;
+            }
+
+                .contact-text strong {
+                    color: white;
+                    font-size: 14px;
+                    display: block;
+                    margin-bottom: 4px;
+                }
+
+                .contact-text span {
+                    color: #aaa;
+                    font-size: 13px;
+                    line-height: 1.5;
+                }
+
+            /* Mobile Styles */
+            @@media (max-width: 992px) {
+                .footer-title {
+                    font-size: 16px;
+                }
+
+                .features-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            @@media (max-width: 768px) {
+                .supermarket-footer {
+                    padding: 30px 0 15px;
+                }
+
+                .newsletter-form {
+                    flex-direction: column;
+                }
+
+                .newsletter-btn {
+                    width: 100%;
+                }
+
+                .social-icons {
+                    justify-content: center;
+                }
+
+                .footer-links-bottom {
+                    gap: 10px;
+                    font-size: 12px;
+                }
+            }
+
+            @@media (max-width: 576px) {
+                .footer-title {
+                    margin-top: 20px;
+                }
+
+                .payment-icons {
+                    font-size: 20px;
+                    gap: 10px;
+                }
+            }
+        </style>
+    }
+
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <footer class="supermarket-footer">
+        <div class="container">
+            <div class="row">
+                <!-- Brand & Contact Column -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="footer-brand">
+                        <a href="/" class="footer-logo">SUPER<span>MART</span></a>
+                        <p class="footer-tagline">Your Instant Grocery Solution</p>
+
+                        <div class="footer-contact">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                                <i class="fas fa-phone" style="color: #ff3c2f;"></i>
+                                <div>
+                                    <div style="color: white; font-weight: 600; font-size: 14px;">24/7 Support</div>
+                                    <div style="color: #aaa; font-size: 13px;">(700) 9001-1909</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a asp-controller="Home" asp-action="Index" ><i class="fas fa-home"></i> Home</a></li>
+                        <li><a asp-controller="Home" asp-action="AllProducts" ><i class="fas fa-store"></i> All Products</a></li>
+                        <li><a asp-controller="Home" asp-action="About" ><i class="fas fa-info-circle"></i> About Us</a></li>
+                        <li><a asp-controller="Home" asp-action="Contact"  ><i class="fas fa-headset"></i> Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service Column -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <h4 class="footer-title">Customer Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-shipping-fast"></i> Delivery Info</a></li>
+                        <li><a href="#"><i class="fas fa-undo"></i> Returns Policy</a></li>
+                        <li><a href="#"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+                        <li><a href="#"><i class="fas fa-file-contract"></i> Terms & Conditions</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter & Social Column -->
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="newsletter-box">
+                        <h4 class="newsletter-title">Get Weekly Deals</h4>
+                        <p class="newsletter-desc">Subscribe for exclusive offers and fresh arrivals</p>
+                        <form class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Enter your email">
+                            <button type="submit" class="newsletter-btn">Subscribe</button>
+                        </form>
+                    </div>
+
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="feature-text">
+                                <strong>Secure Payment</strong>
+                                <span>100% Protected</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-truck-fast"></i>
+                            <div class="feature-text">
+                                <strong>Fast Delivery</strong>
+                                <span>30 Min Promise</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-leaf"></i>
+                            <div class="feature-text">
+                                <strong>Fresh Guarantee</strong>
+                                <span>Daily Products</span>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-undo"></i>
+                            <div class="feature-text">
+                                <strong>Easy Returns</strong>
+                                <span>7-Day Policy</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    &copy; 2025 <strong>Online Supermarket System</strong>. All Rights Reserved.
+                </div>
+
+                <div class="payment-methods">
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa" title="Visa"></i>
+                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                        <i class="fab fa-cc-amex" title="American Express"></i>
+                        <i class="fab fa-cc-paypal" title="PayPal"></i>
+                        <i class="fab fa-cc-apple-pay" title="Apple Pay"></i>
+                    </div>
+                </div>
+
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <style>
+        .mobile-bottom-nav {
+            display: none;
+            background: #111;
+            border-top: 2px solid #ff3c2f;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .mobile-nav-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .mobile-nav-item {
+            text-align: center;
+            flex: 1;
+        }
+
+            .mobile-nav-item a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #aaa;
+                text-decoration: none;
+                font-size: 11px;
+                transition: color 0.3s ease;
+            }
+
+                .mobile-nav-item a:hover {
+                    color: #ff3c2f;
+                }
+
+            .mobile-nav-item i {
+                font-size: 18px;
+                margin-bottom: 4px;
+            }
+
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: 30%;
+            background: #ff3c2f;
+            color: white;
+            font-size: 10px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        @@media (max-width: 768px) {
+            .mobile-bottom-nav {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 60px;
+            }
+        }
+    </style>
+
+    <div class="mobile-bottom-nav d-lg-none">
+        <div class="mobile-nav-container">
+            <div class="mobile-nav-item">
+                <a href="/">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+            </div>
+            <div class="mobile-nav-item">
+                <a href="#">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </a>
+            </div>
+            <div class="mobile-nav-item">
+                <a href="#">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                    <span class="cart-badge">3</span>
+                </a>
+            </div>
+            <div class="mobile-nav-item">
+                <a href="#">
+                    <i class="fas fa-user"></i>
+                    <span>Account</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/Website/js/jquery-3.4.1.min.js"></script>
+    <script src="~/Website/js/bootstrap.min.js"></script>
+    <script src="~/Website/js/jquery.countdown.min.js"></script>
+    <script src="~/Website/js/jquery.nice-select.min.js"></script>
+    <script src="~/Website/js/jquery.nicescroll.min.js"></script>
+    <script src="~/Website/js/slick.min.js"></script>
+    <script src="~/Website/js/biolife.framework.js"></script>
+    <script src="~/Website/js/functions.js"></script>
+    <script src="~/Website/js/footer.js.js"></script>
+</body>
+
+</html>
+
+
+
+

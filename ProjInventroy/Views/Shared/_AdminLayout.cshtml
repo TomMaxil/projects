@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ProjInventroy.styles.css" asp-append-version="true" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+
+     
+    <title>Admin Panel</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+       
+        .sidebar {
+            width: 250px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+            .sidebar h2 {
+                color: #ecf0f1;
+                text-align: center;
+                margin-bottom: 30px;
+                padding-bottom: 10px;
+                border-bottom: 1px solid #34495e;
+            }
+
+            .sidebar a {
+                display: block;
+                color: #bdc3c7;
+                padding: 12px 15px;
+                text-decoration: none;
+                margin: 5px 0;
+                border-radius: 4px;
+                transition: all 0.3s;
+            }
+
+                .sidebar a:hover {
+                    background: #34495e;
+                    color: white;
+                }
+
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex !important;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            .dropdown-toggle .arrow {
+                font-size: 10px;
+                transition: transform 0.3s;
+            }
+
+        .dropdown.active .arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            display: none;
+            padding-left: 15px;
+            background: #1a252f;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+
+            .dropdown-content a {
+                padding: 10px 15px;
+                font-size: 14px;
+                color: #95a5a6;
+            }
+
+                .dropdown-content a:hover {
+                    background: #2c3e50;
+                    color: white;
+                }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        
+        .main {
+            flex: 1;
+            background-color: #f4f6f9;
+        }
+
+        
+        .topbar {
+            background-color: white;
+            padding: 12px 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Admin</h2>
+            <a asp-controller="Admin" asp-action="Index">Dashboard</a>
+
+            <a asp-controller="Admin" asp-action="LowStock">Low Stock</a>
+
+            <!-- Category Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" onclick="toggleDropdown('category-dropdown')">
+                    Category
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-content" id="category-dropdown">
+                    <a asp-controller="Category" asp-action="Index">All Category</a>
+                    <a asp-controller="Category" asp-action="Create">Add Category</a>
+                </div>
+            </div>
+
+            <!-- Product Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" onclick="toggleDropdown('product-dropdown')">
+                    Product
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-content" id="product-dropdown">
+                    <a asp-controller="Product" asp-action="Index">All Product</a>
+                    <a asp-controller="Product" asp-action="Add">Add Product</a>
+                </div>
+            </div>
+
+            <!-- Supplier Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" onclick="toggleDropdown('supplier-dropdown')">
+                    Supplier
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-content" id="supplier-dropdown">
+                    <a asp-controller="Supplier" asp-action="Index">All Supplier</a>
+                    <a asp-controller="Supplier" asp-action="Create">Add Supplier</a>
+                </div>
+            </div>
+
+          
+            <!-- Purchase Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" onclick="toggleDropdown('purchase-dropdown')">
+                    Purchase
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-content" id="purchase-dropdown">
+                    <a asp-controller="Purchase" asp-action="Index">All Purchase</a>
+                    <a asp-controller="Purchase" asp-action="Create">Add Purchase</a>
+                </div>
+
+            <!-- Sale Dropdown -->
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" onclick="toggleDropdown('sale-dropdown')">
+                    Sale
+                    <span class="arrow">▼</span>
+                </a>
+                <div class="dropdown-content" id="sale-dropdown">
+                    <a asp-controller="Sale" asp-action="Index">All Sale</a>
+                    <a asp-controller="Sale" asp-action="Create">Add Sale</a>
+                </div>
+            </div>
+
+            </div>
+        </div>
+       
+        <script>
+            function toggleDropdown(dropdownId) {
+                event.preventDefault();
+                const dropdown = document.getElementById(dropdownId);
+                const parent = dropdown.parentElement;
+
+               
+                parent.classList.toggle('active');
+
+                
+                document.querySelectorAll('.dropdown').forEach(item => {
+                    if (item !== parent && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+
+            
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+        </script>
+
+        <!-- Main -->
+        <div class="main">
+
+            <!-- Topbar -->
+            <div class="topbar">
+                <strong>Admin Dashboard</strong>
+            </div>
+
+            <!-- Page Content -->
+            <div class="content">
+                @RenderBody()
+            </div>
+
+        </div>
+    </div>
+    <!-- 1️⃣ jQuery (MANDATORY) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- 2️⃣ Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <!-- 3️⃣ SignalR -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.0/signalr.min.js"></script>
+
+</body>
+</html>

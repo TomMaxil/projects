@@ -1,0 +1,363 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model Eproject.ViewModel.AdminDashboardVM
+
+<div class="main-content">
+    <section class="section">
+        <div class="section-header">
+            <h1>Dashboard Overview</h1>
+            <div class="section-header-breadcrumb">
+                <div class="breadcrumb-item active"><a asp-controller="Admin" asp-action="Index" >Dashboard</a></div>
+            </div>
+        </div>
+
+        <div class="section-body">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Products</h4>
+                            </div>
+                            <div class="card-body">
+                                @Model.TotalProducts
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-danger">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Orders</h4>
+                            </div>
+                            <div class="card-body">
+                                @Model.TotalOrders
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-warning">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="card-wrap">
+                            <div class="card-header">
+                                <h4>Total Customers</h4>
+                            </div>
+                            <div class="card-body">
+                                @Model.TotalCustomers
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Quick Actions</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                                    <a asp-controller="Product" asp-action="Add" class="card card-statistic-2">
+                                        <div class="card-icon shadow-primary bg-primary">
+                                            <i class="fas fa-plus"></i>
+                                        </div>
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4>Add Product</h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                                    <a asp-controller="Admin" asp-action="OrderList" class="card card-statistic-2">
+                                        <div class="card-icon shadow-danger bg-danger">
+                                            <i class="fas fa-shopping-cart"></i>
+                                        </div>
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4>Manage Orders</h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                                    <a asp-controller="Admin" asp-action="Youser" class="card card-statistic-2">
+                                        <div class="card-icon shadow-warning bg-warning">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4>View Users</h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-6 col-sm-3 col-lg-3 mb-4">
+                                    <a asp-controller="Category" asp-action="Index" class="card card-statistic-2">
+                                        <div class="card-icon shadow-success bg-success">
+                                            <i class="fas fa-tags"></i>
+                                        </div>
+                                        <div class="card-wrap">
+                                            <div class="card-header">
+                                                <h4>Categories</h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>System Status</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="list-group">
+                                <div class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Server Status</h6>
+                                        <span class="badge badge-success">Online</span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Database</h6>
+                                        <span class="badge badge-success">Active</span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Total Products</h6>
+                                        <span class="badge badge-info">@Model.TotalProducts</span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Total Orders</h6>
+                                        <span class="badge badge-info">@Model.TotalOrders</span>
+                                    </div>
+                                </div>
+                                <div class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1">Total Customers</h6>
+                                        <span class="badge badge-info">@Model.TotalCustomers</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Statistics Summary</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6 mb-4">
+                                    <div class="text-center">
+                                        <div class="mb-2">
+                                            <i class="fas fa-box fa-2x text-primary"></i>
+                                        </div>
+                                        <h5>Products</h5>
+                                        <h3>@Model.TotalProducts</h3>
+                                    </div>
+                                </div>
+                                <div class="col-6 mb-4">
+                                    <div class="text-center">
+                                        <div class="mb-2">
+                                            <i class="fas fa-shopping-cart fa-2x text-danger"></i>
+                                        </div>
+                                        <h5>Orders</h5>
+                                        <h3>@Model.TotalOrders</h3>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="mb-2">
+                                            <i class="fas fa-users fa-2x text-warning"></i>
+                                        </div>
+                                        <h5>Customers</h5>
+                                        <h3>@Model.TotalCustomers</h3>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="text-center">
+                                        <div class="mb-2">
+                                            <i class="fas fa-chart-line fa-2x text-success"></i>
+                                        </div>
+                                        <h5>Growth</h5>
+                                        <h3>+12%</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    .card-statistic-1, .card-statistic-2 {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,.08);
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+        .card-statistic-1:hover, .card-statistic-2:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,.15);
+        }
+
+        .card-statistic-1 .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            float: left;
+            margin-right: 15px;
+        }
+
+            .card-statistic-1 .card-icon i {
+                font-size: 24px;
+                color: white;
+            }
+
+        .card-statistic-1 .card-wrap {
+            overflow: hidden;
+        }
+
+        .card-statistic-1 .card-header h4 {
+            font-size: 14px;
+            color: #6c757d;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .card-statistic-1 .card-body {
+            font-size: 28px;
+            font-weight: 800;
+            color: #222;
+        }
+
+    .card-statistic-2 {
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .card-statistic-2 .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+
+            .card-statistic-2 .card-icon i {
+                font-size: 24px;
+                color: white;
+            }
+
+        .card-statistic-2 .card-header h4 {
+            font-size: 15px;
+            color: #222;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+        }
+
+    .section-header h1 {
+        color: #222;
+        font-weight: 800;
+        font-size: 28px;
+        margin: 0;
+    }
+
+    .card {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    }
+
+    .card-header {
+        background: white;
+        border-bottom: 1px solid #e3e6f0;
+        padding: 20px 25px;
+    }
+
+        .card-header h4 {
+            color: #222;
+            font-weight: 700;
+            margin: 0;
+            display: inline-block;
+        }
+
+    .badge-success {
+        background: #28a745;
+        color: white;
+    }
+
+    .badge-info {
+        background: #17a2b8;
+        color: white;
+    }
+
+    .badge-warning {
+        background: #ffc107;
+        color: #212529;
+    }
+
+    .list-group-item {
+        border: 1px solid #e3e6f0;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        padding: 15px;
+    }
+
+        .list-group-item h6 {
+            font-weight: 600;
+            color: #222;
+            margin: 0;
+        }
+
+    h3 {
+        font-weight: 800;
+        color: #222;
+        margin: 10px 0;
+    }
+
+    h5 {
+        font-weight: 600;
+        color: #6c757d;
+        margin-bottom: 10px;
+    }
+</style>
